@@ -1,0 +1,12 @@
+<div class="zy_media">
+    <audio data-config='' src="song/a1.mp3">
+       Not Support HTML5 Medias
+    </audio>
+</div>
+
+<script src="src/zy.media.min.js"></script>
+<script>
+	document.querySelector('audio').src ='song/a'+ parseInt(Math.random()*7+1)+'.mp3';  // [1,7]
+    zymedia('audio',{preload: 'auto',autoplay: true,autoLoop: true,enableVisibilityState: false});
+<!--https://github.com/ireaderlab/zyMedia-->
+</script>

@@ -1,0 +1,42 @@
+---
+
+port: 4000
+host: 0.0.0.0
+safe: false
+
+
+### site serving configuration ###
+exclude: [CNAME, README.md, .gitignore]
+permalink: /:title ## disables post output
+timezone: null
+lsi: false
+markdown: kramdown
+
+
+### content configuration ###
+home: "newsong.top"
+title: "NewSong.Top"
+keywords: "newsong.top for you,new song, hot song,new songs,hot songs,punjabi song,new song 2020,santali video,wapking,new song 2019"
+description: "NewSong.Top  for you,new song, hot song,new song 2020,Audiovisual Appreciation"
+source_link: "https://newsong.top"
+favicon: "img/favicon.ico"
+touch_icon:  "img/apple-touch-icon.png"
+email: "chygmm(at)qq.com"
+qq: "1523338780"
+phone: "1-8-5-2-0-9-5-6-7-8-7"
+google_analytics_key:  UA-51913082-3 ## put YOUR key here to enable tracking! (blank to disable)
+
+
+### template colors, used site-wide via css ###
+colors:
+  black:     '#111111'
+  white:     '#f8f8f8'
+  blue:      '#49a7e9'
+  green:     '#9bcf2f'
+  purple:    '#c869bf'
+  orange:    '#fab125'
+  turquoise: '#0fbfcf'
+
+kramdown:
+  auto_ids:  false
+
