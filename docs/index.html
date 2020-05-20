@@ -14,7 +14,6 @@
   {% if site.favicon %}<link rel="shortcut icon" href="{{ site.favicon }}" type="image/x-icon">{% endif %}
 	{% if site.touch_icon %}<link rel="apple-touch-icon" href="{{ site.touch_icon }}">{% endif %}
 	{% include analytics_tag.html %}
-		{% include head_add.html %}
  
 </head>
 <body>
@@ -26,7 +25,7 @@
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
         <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
       {% endfor %}
-{% include player.html %}
+ 
     </ul></nav>
 
 
