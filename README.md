@@ -28,7 +28,7 @@ Windows系统，支持XP以上。
 下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
 
 ![目录](https://github.com/appemit/appemit/tree/master/docs/img/1.2.png)
-
+![目录](https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1)
  同时只能开启一个AppEmit.exe进程。
  
 	直接运行，如果本机已经运行了AppEmit.exe，则不做处理。
@@ -60,6 +60,7 @@ ws.onclose = function (evt) {};
 2.	连接Appemit服务
 initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
 3.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
+```
 var init_AE={
 		 "clientKey":"temp-0000000000",  
 		  "Browser":ThisBrowser,
@@ -69,9 +70,10 @@ var init_AE={
   }
 
   EmitReq_PaOP(init_AE);
+  ```
 4.	发送命令
 
-startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
+`startAppEmit('{"emit":"hardWare","Obj":"pc"}') `
 
 ### 1.3.3	demo
 在demo下主要是html的举例，
@@ -82,13 +84,14 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 2	插件场景
 2.1	获取客户端信息
 使用浏览器打开demo下的index.html。授权连接后，发送获取PC信息命令。
+```
 initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
 startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
- 
+```
 2.2	不同客户端通信
 打开demo下的index.html,模拟不同sid打开浏览器。
 连接Appemit授权后，在sid=1下发送命令。
-{"emit":"msg","toSids":["2,3"],"toGids":[1,2],"data":"hi, I'am Tom."}
+`{"emit":"msg","toSids":["2,3"],"toGids":[1,2],"data":"hi, I'am Tom."}`
 在客户cid全集下，通过唯一的sid对话，可以一对一，或者一对多通话。
  
 图为1对2和3通话。
@@ -106,8 +109,9 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 
 #### 2.3.1.1	打开网络flash文件
 打开demo下的AppEmbed.html,连接授权后，发送使用ActiveX（"AppType":0）打开网络flash文件命令，参数如下。
+```
 {"emit":"open","Obj":"flash","AppType":0,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
-
+```
 注意事项：
 
 在客户端需要下载安装flash player ActiveX。
@@ -120,34 +124,37 @@ flashVars可以设置在src中
 #### 2.3.1.2	打开本地flash文件
 
 可以是绝对或者相对路径，相对于AppEmit.exe的路径："demo/htmlDemo/test1.swf"。
-
+```
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
- 
+ ```
 
 ### 2.3.2	NPAPI-嵌入web
 
 能打开常用网页，目前的插件不支持html5的媒体特性。如有需要，可以使用node或者electron插件。
 使用Appemit程序自带的插件NPSWF32.dll，能打开嵌有flash的网页。
 连接授权后，发送命令"AppType":1的形式。
+```
 {"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}
- 
+ ```
 ### 2.3.3	NPAPI-网络flash文件
 
 使用Appemit程序自带的插件NPSWF32.dll， 打开网络flash文件。
 连接授权后，发送命令"AppType":2的形式。
+```
 {"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
- 
+ ```
 ### 2.3.4	NPAPI-网络媒体文件
 
 使用Appemit程序自带的插件NPSWF32.dll， 打开网络媒体文件，包括flv,mp4等。
 连接授权后，发送命令"AppType":3的形式。
+```
 {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
-
+```
 ## 2.4	关闭
 
 1.	刷新即可关闭flash
-2.	{"emit":"close","Obj":"flash"}
-3.	{"emit":"closeAll","Obj":"flash"}
+2.	`{"emit":"close","Obj":"flash"}`
+3.	`{"emit":"closeAll","Obj":"flash"}`
 
 ## 2.5	其它
 
@@ -171,14 +178,15 @@ para	cid	必需。10000-0为免费账号。	全集。
 1调试	
 
 ## 3.2	初始化数据
-
+```
 var init_AE={
  		"clientKey":"temp-0000000000",  
 		"Browser":ThisBrowser,
 		"wsUrl":wsUrl,
 		 "sid":"123456",        									 
- "gid":"[1,2]"                                             
-			}
+        "gid":"[1,2]"                                             
+	 }
+```			
 名称	设置	含义	说明
 客户端clientKey	temp-0000000000	必需,与cid对应。	保密，js应该混淆加密。
 Browser	 ThisBrowser	默认	
@@ -190,14 +198,14 @@ wsUrl	wsUrl	默认	可以在config.in修改
 
 ### 3.3.1	硬件信息
 
-{"emit":"hardWare","Obj":"pc"}
+`{"emit":"hardWare","Obj":"pc"}`
 名称	设置	含义	说明
 emit	hardWare	必需。通信请求。	
 Obj	pc	必需。目标对象。	
 
 ### 3.3.2	通话
 
-{"emit":"msg","toSids":["2"],"toGids":[1,2],"data":"hi, I'am Tom."}
+`{"emit":"msg","toSids":["2"],"toGids":[1,2],"data":"hi, I'am Tom."}`
 名称	设置	含义	说明
 emit	msg	必需。通信事件请求。	
 toSids	必需要有一个	非必需。可以是数组。	
@@ -217,8 +225,9 @@ CAD后续支持
 par0			
 
 #### 3.3.3.1	"AppType":0打开flash
-
+```
 {"emit":"open","Obj":"flash","AppType":0,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+```
 名称	设置	含义	说明
 emit	open	必需。打开控件APP通信事件请求。	
 Obj	flash	必需。
@@ -261,8 +270,9 @@ pos	{"left":372,"top":203,"width":606,"height":406}	必需。
 
 
 #### 3.3.3.2	"AppType":1打开flash
-
+```
 {"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}
+```
 名称	设置	含义	说明
 emit	open	必需。打开控件APP通信事件请求。	
 Obj	flash	必需。	
@@ -277,8 +287,9 @@ pos	{"left":372,"top":203,"width":606,"height":406}	必需。
 1 默认使用代码自动识别的位置。	对不同的浏览器，自动识别的位置需要优化
 
 #### 3.3.3.3	"AppType":2打开flash
-
+```
 {"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
+```
 名称	设置	含义	说明
 emit	open	必需。打开控件APP通信事件请求。	
 Obj	flash	必需。	
@@ -297,8 +308,9 @@ par0	autoPlay	可选。默认true	参考flash官方默认参数。
 	wmode	可选。默认Transparent	参考flash官方默认参数。
 
 #### 3.3.3.4	"AppType":3打开flash
-
+```
 {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
+```
 名称	设置	含义	说明
 emit	open	必需。打开控件APP通信事件请求。	
 Obj	flash	必需。	
@@ -319,14 +331,14 @@ https://player.alicdn.com/aliplayer/setting/setting.html
 
 #### 3.3.4.1	关闭sid对应APP
 
-{"emit":"close","Obj":"flash"}
+`{"emit":"close","Obj":"flash"}`
 名称	设置	含义	说明
 emit	close	必需。关闭控件APP通信事件请求。	
 Obj	flash	必需。	
 
 #### 3.3.4.2	关闭cid所有APP
 
-{"emit":"closeAll","Obj":"flash"}
+`{"emit":"closeAll","Obj":"flash"}`
 名称	设置	含义	说明
 emit	close	必需。关闭所有控件APP通信事件请求。	关闭在cid下运行的所有控件APP
 Obj	flash	必需。
