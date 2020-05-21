@@ -79,17 +79,25 @@ var init_AE={
 在demo下主要是html的举例，
 	包括获取pc信息，实现通话的index.html
 	以及播放flash的AppEmbed.html
-1.4	联系
+
+## 1.4	联系
 邮件： appemit@appemit.com
-2	插件场景
-2.1	获取客户端信息
+
+
+# 2	插件场景
+
+## 2.1	获取客户端信息
+
 使用浏览器打开demo下的index.html。授权连接后，发送获取PC信息命令。
+
 ```
 initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
 startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
 ```
 ![PC信息](https://github.com/appemit/appemit/blob/master/docs/img/2.1.png)
+
 2.2	不同客户端通信
+
 打开demo下的index.html,模拟不同sid打开浏览器。
 连接Appemit授权后，在sid=1下发送命令。
 `{"emit":"msg","toSids":["2,3"],"toGids":[1,2],"data":"hi, I'am Tom."}`
@@ -153,6 +161,7 @@ flashVars可以设置在src中
 ```
 {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
 ```
+  ![image](https://github.com/appemit/appemit/blob/master/docs/img/2.3.4.png)
 ## 2.4	关闭
 
 1.	刷新即可关闭flash
@@ -335,6 +344,7 @@ https://player.alicdn.com/aliplayer/setting/setting.html
 #### 3.3.4.1	关闭sid对应APP
 
 `{"emit":"close","Obj":"flash"}`
+
 名称	设置	含义	说明
 emit	close	必需。关闭控件APP通信事件请求。	
 Obj	flash	必需。	
@@ -342,6 +352,7 @@ Obj	flash	必需。
 #### 3.3.4.2	关闭cid所有APP
 
 `{"emit":"closeAll","Obj":"flash"}`
+
 名称	设置	含义	说明
 emit	close	必需。关闭所有控件APP通信事件请求。	关闭在cid下运行的所有控件APP
 Obj	flash	必需。
@@ -349,11 +360,15 @@ Obj	flash	必需。
 
 # 4	问题
 1.	支持linux mac？
+
 目前版本不支持，使用在windows系统上。
 2.	免费版本有何限制条件？
+
 会不定时有弹窗。
 3.	测试点击连接，为何没有反应？ 
+
 首先要打开AppEmit.exe服务，可以F12查看报错情况。重启系统后，AppEmit.exe进程自动开启，没有被关闭。
 4.	如何开发插件？
+
 使用HPSocket的C接口。目前在测试中。
 
