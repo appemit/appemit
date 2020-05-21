@@ -15,7 +15,7 @@ AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的�
 
 网址	[http://www.appemit.com](http://www.appemit.com)
 
-[Github](https://github.com/appemit/appemit)
+Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email	appemit(at)appemit.com	
  
@@ -26,6 +26,7 @@ Windows系统，支持XP以上。
 ## 1.2	用法
 
 下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
+![目录](https://github.com/appemit/appemit/tree/master/docs/img/1.2.png)
  同时只能开启一个AppEmit.exe进程。
  
 	直接运行，如果本机已经运行了AppEmit.exe，则不做处理。
