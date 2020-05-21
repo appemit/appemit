@@ -12,7 +12,7 @@
 
 	程序名称	AppEmit.exe
 	
-	网址	http://www.appemit.com
+	网址	[http://www.appemit.com](http://www.appemit.com)
 	
 	Email	appemit@appemit.com	
  
