@@ -1,7 +1,8 @@
  
 # 1	概述
 
-	AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5国际标准的Web Socket进行通话，默认为异步， JSON格式传递参数。主要实现功能：
+		AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5国际标准的Web Socket进行通话，默认为异步， JSON格式传递参数。主要实现功能：
+	
 	在浏览器播放Flash，包括swf交互动画、flv影视等
 
 	在浏览器打开、操作本地文件，比如办公软件
@@ -10,11 +11,9 @@
 
 	各个应用程序之间 通信 
 
-	程序名称	AppEmit.exe
-	
-	网址	[http://www.appemit.com](http://www.appemit.com)
-	
-	Email	appemit@appemit.com	
+程序名称	AppEmit.exe
+网址	[http://www.appemit.com](http://www.appemit.com)
+Email	appemit@appemit.com	
  
 ## 1.1	使用条件
 
