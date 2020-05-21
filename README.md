@@ -15,7 +15,9 @@ AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的�
 
 网址	[http://www.appemit.com](http://www.appemit.com)
 
-Email	appemit@appemit.com	
+[Github](https://github.com/appemit/appemit)
+
+Email	appemit(at)appemit.com	
  
 ## 1.1	使用条件
 
@@ -32,20 +34,23 @@ Windows系统，支持XP以上。
 
 ## 1.3	技术实现
 
-Web Socket采用开源控件HPSocket（https://github.com/ldcsaa/HP-Socket），支持ssl。
+Web Socket采用开源控件[HPSocket](https://github.com/ldcsaa/HP-Socket)，支持ssl。
 
 Dll文件开放了C接口，可以在此基础二次开发控件。
+
 	HPSocket4C_U.dll
+
 	HPSocket4C-SSL_U.dll
 
 ### 1.3.1	实现过程
 
 在Html的js实现WebSocket，调用AppEmit通话。
+```
 ws = new WebSocket(wsUrl);  
 ws.onopen = function (evt) {};
 ws.onmessage = function (evt) {};
 ws.onclose = function (evt) {};
-
+```
 ### 1.3.2	主要步骤，连接授权，发送命令
 
 1.	网页注册后获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=10000-0测试。
