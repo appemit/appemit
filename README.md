@@ -28,7 +28,7 @@ Windows系统，支持XP以上。
 下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
 
 ![目录](https://github.com/appemit/appemit/tree/master/docs/img/1.2.png)
-![目录](https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1)
+![目录](http://www.zwxol.com/zwxol/epr_banner_img.png)
  同时只能开启一个AppEmit.exe进程。
  
 	直接运行，如果本机已经运行了AppEmit.exe，则不做处理。
