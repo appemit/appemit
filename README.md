@@ -25,12 +25,15 @@ Windows系统，支持XP以上。
 
 下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
  同时只能开启一个AppEmit.exe进程。
+ 
 	直接运行，如果本机已经运行了AppEmit.exe，则不做处理。
+
 	如果本机已经有程序AppEmit.exe运行，右键以管理员方式运行，则关闭老进程，开启新的进程。
 
 ## 1.3	技术实现
 
 Web Socket采用开源控件HPSocket（https://github.com/ldcsaa/HP-Socket），支持ssl。
+
 Dll文件开放了C接口，可以在此基础二次开发控件。
 	HPSocket4C_U.dll
 	HPSocket4C-SSL_U.dll
@@ -81,11 +84,13 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 在客户cid全集下，通过唯一的sid对话，可以一对一，或者一对多通话。
  
 图为1对2和3通话。
+
 另外还可以设置不同群gid，一个sid可以加入不同的gid。
 发送消息时，在cid全集下，所有的toSids和toGids取对应的sid交集剔重，并排除自身。
 
 2.3	Flash
 两种方法，主要四种形式实现场景
+
 1、	使用客户端本地安装的Flash Player ActiveX控件，要是客户端没有，需要自行下载。下载地址：http://www.adobe.com/go/getflashplayer
 2、	使用Appemit程序自带的插件plugins/NPSWF32.dll
  
@@ -94,7 +99,9 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 #### 2.3.1.1	打开网络flash文件
 打开demo下的AppEmbed.html,连接授权后，发送使用ActiveX（"AppType":0）打开网络flash文件命令，参数如下。
 {"emit":"open","Obj":"flash","AppType":0,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+
 注意事项：
+
 在客户端需要下载安装flash player ActiveX。
 路径是 / 或许 \\
 flashVars可以设置在src中
@@ -105,6 +112,7 @@ flashVars可以设置在src中
 #### 2.3.1.2	打开本地flash文件
 
 可以是绝对或者相对路径，相对于AppEmit.exe的路径："demo/htmlDemo/test1.swf"。
+
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
  
 
