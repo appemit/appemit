@@ -22,7 +22,7 @@ source_link: "http://www.appemit.com"
 favicon: "img/favicon.ico"
 touch_icon:  "img/apple-touch-icon.png"
 email: "appemit(at)appemit.com"
- 
+github: "https://github.com/appemit/appemit"
 google_analytics_key:  UA-51913082-5 ## put YOUR key here to enable tracking! (blank to disable)
 
 
