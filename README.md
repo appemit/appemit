@@ -8,11 +8,11 @@
 
 	开发本地硬件DLL驱动模块的封装插件，实现在网页中操作控制本地的读卡器、打印机、扫描仪、高拍仪、U盾等各种硬件设备
 
-	各个应用程序之间[通信](http://www.baidu.com)
+	各个应用程序之间 通信 
 
 	程序名称	AppEmit.exe
 	
-	网址	http://www.appemit.com
+	网址	[http://www.appemit.com](http://www.appemit.com)
 	
 	Email	appemit@appemit.com	
  
