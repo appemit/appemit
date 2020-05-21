@@ -177,7 +177,8 @@ flashVars可以设置在src中
 ## 3.1	连接
 
 ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1
-名称	设置	含义	说明
+
+名称	|设置	|含义|	说明
 协议	ws	SSL为wss	
 网址	Localhost
 127.0.0.1		
