@@ -12,7 +12,8 @@
 	各个应用程序之间 通信 
 
 程序名称	AppEmit.exe
-网址	[http://www.appemit.com](http://www.appemit.com)
+	网址	[http://www.appemit.com](http://www.appemit.com)
+
 Email	appemit@appemit.com	
  
 ## 1.1	使用条件
