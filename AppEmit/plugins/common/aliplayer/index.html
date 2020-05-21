@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<title>Aliplayer </title>
+<link rel="stylesheet" href="aliplayer-min.css" />
+<script type="text/javascript" charset="utf-8" src="aliplayer-min.js"></script>
+</head>
+<body>
+<div class="prism-player" id="player-con"></div>
+<script>
+var player = new Aliplayer({
+  "id": "player-con","autoplay":1,"height":"390px","isLive":false,"rePlay":1,"showBarTime":4000,"showBuffer":true,"snapshot":false,"source":"https://media.html5media.info/video.mp4","useFlashPrism":true,"width":"100%", "skinLayout": [
+ 
+    {
+      "name": "controlBar",
+      "align": "blabs",
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "name": "progress",
+          "align": "tlabs",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "name": "playButton",
+          "align": "tl",
+          "x": 15,
+          "y": 26
+        },
+        {
+          "name": "nextButton",
+          "align": "tl",
+          "x": 10,
+          "y": 26
+        },
+        {
+          "name": "timeDisplay",
+          "align": "tl",
+          "x": 10,
+          "y": 24
+        },
+        {
+          "name": "fullScreenButton",
+          "align": "tr",
+          "x": 10,
+          "y": 25
+        },
+        {
+          "name": "streamButton",
+          "align": "tr",
+          "x": 10,
+          "y": 23
+        },
+        {
+          "name": "volume",
+          "align": "tr",
+          "x": 10,
+          "y": 25
+        }
+      ]
+    },
+    {
+      "name": "fullControlBar",
+      "align": "tlabs",
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "name": "fullTitle",
+          "align": "tl",
+          "x": 25,
+          "y": 6
+        },
+        {
+          "name": "fullNormalScreenButton",
+          "align": "tr",
+          "x": 24,
+          "y": 13
+        },
+        {
+          "name": "fullTimeDisplay",
+          "align": "tr",
+          "x": 10,
+          "y": 12
+        },
+        {
+          "name": "fullZoom",
+          "align": "cc"
+        }
+      ]
+    }
+  ]
+}, function (player) {
+   // console.log("The player is created");
+  }
+);
+</script>
+</body> 
+</html>

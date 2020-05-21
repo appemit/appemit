@@ -1,0 +1,60 @@
+<!DOCTYPE html>  <!--  manifest="/websocket.appcache"-->
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title> AppEmit 嵌入APP,支持播放flash的flv swf 以及视频播放，可以嵌入各类程序</title>  
+	   <meta name="description" content=" AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件">
+	<meta name="keywords" content=" Embed App,游戏,办公,websocket,SSL,plugins,flash,mp4,flv,swf, m3u8,rtmp,mp3,aac">
+
+    <script type="text/javascript">
+    </script>
+ 
+ 	<!-- json2 is included because some browsers doesnt have it (e.g. ie8)	-->
+	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+ 
+</head>
+<body>
+
+
+<div class="container">
+<input type="text" class="form-control" size="80" style="margin-bottom:3px;" id="input_url" value="ws://localhost:80/appemit?cid=10000-0&flag=1" />
+     <button type="button" id="btn_Flash" onclick="init_App() " >websocket</button> &nbsp;  &nbsp; &nbsp;<a href="index.html" target="_blank">hardware  index Demo</a>
+      <div >  
+		<div style="font-size:10px">0.support localfile: d:/.../test1.swf or demo/htmlDemo/test1.swf , need install flash ActiveX:
+				<input type="text" class="form-control" size="90" style="margin-bottom:3px;" id="input_par" value='{"emit":"open","Obj":"flash","AppType":0,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}' />
+		   	<button type="button" id="btn_Flash" onclick="input_App() " >do it</button>
+		   </div>
+	   <div style="font-size:10px">1. webtype:   {"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}</div>
+	<div style="font-size:10px">2. web swf file:  {"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}</div>
+    <div style="font-size:10px">3. web vedio file:  {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}</div>
+	    <div style="font-size:10px">close flash:  {"emit":"close","Obj":"flash"} </div>      
+
+		   </div>
+             <div style="margin-top:10px;text-align:center">
+				<textarea readonly id="AppEmbed"  style="min-width:30px;min-height:20px;width:600px;height:400px" ></textarea>
+		</div>
+ 
+</div>
+
+</body>
+  <script src="AppEmit_0.1.js"></script>
+<script>
+ 
+	var init_App=function(){   
+		initAppEmit(document.getElementById('input_url').value);
+	}
+	   
+	var input_App=   function(){
+ 
+	      var ReqPar={};
+	       ReqPar=JSON.parse(document.getElementById("input_par").value);
+		  
+ 		//   ReqPar={"emit":"open","Obj":"flash","src":"D:/work/temp/m1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0}}
+	
+	   	   startAppEmit(ReqPar);
+	   }
+	   
+	   
+</script>
+</html>
