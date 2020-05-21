@@ -2,36 +2,44 @@
 
  
 1	概述
-AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5国际标准的Web Socket进行通话，默认为异步， JSON格式传递参数。
-主要实现功能：
+
+	AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5国际标准的Web Socket进行通话，默认为异步， JSON格式传递参数。
+	主要实现功能：
 	在浏览器播放Flash，包括swf交互动画、flv影视等
 	在浏览器打开、操作本地文件，比如办公软件
 	开发本地硬件DLL驱动模块的封装插件，实现在网页中操作控制本地的读卡器、打印机、扫描仪、高拍仪、U盾等各种硬件设备
 	各个应用程序之间通信
-程序名称	AppEmit.exe	
- 网址	http://www.appemit.com
-Email	appemit@appemit.com	
+	程序名称	AppEmit.exe	
+	网址	http://www.appemit.com
+	Email	appemit@appemit.com	
  
 1.1	使用条件
+
 Windows系统，支持XP以上。
 1.2	用法
+
 下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
- 
-同时只能开启一个AppEmit.exe进程。
+ 同时只能开启一个AppEmit.exe进程。
 	直接运行，如果本机已经运行了AppEmit.exe，则不做处理。
 	如果本机已经有程序AppEmit.exe运行，右键以管理员方式运行，则关闭老进程，开启新的进程。
+
 1.3	技术实现
+
 Web Socket采用开源控件HPSocket（https://github.com/ldcsaa/HP-Socket），支持ssl。
 Dll文件开放了C接口，可以在此基础二次开发控件。
 	HPSocket4C_U.dll
 	HPSocket4C-SSL_U.dll
+
 1.3.1	实现过程
+
 在Html的js实现WebSocket，调用AppEmit通话。
 ws = new WebSocket(wsUrl);  
 ws.onopen = function (evt) {};
 ws.onmessage = function (evt) {};
 ws.onclose = function (evt) {};
+
 1.3.2	主要步骤，连接授权，发送命令
+
 1.	网页注册后获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=10000-0测试。
 2.	连接Appemit服务
 initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
@@ -46,6 +54,7 @@ var init_AE={
 
   EmitReq_PaOP(init_AE);
 4.	发送命令
+
 startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
 1.3.3	demo
 在demo下主要是html的举例，
@@ -256,8 +265,7 @@ pos	{"left":372,"top":203,"width":606,"height":406}	必需。
 1 默认使用代码自动识别的位置。	对不同的浏览器，自动识别的位置需要优化
 par0	autoPlay	可选。默认1	参考
 https://player.alicdn.com/aliplayer/setting/setting.html
-
-	loop	可选。默认1	。
+	loop	可选。默认1	
 3.3.4	关闭
 3.3.4.1	关闭sid对应APP
 {"emit":"close","Obj":"flash"}
