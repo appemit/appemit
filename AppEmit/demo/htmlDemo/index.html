@@ -25,7 +25,7 @@
 			 <button type="button" id="btn_Flash" onclick="init_App() " >websocket</button>
 			 </div>
 
-	
+
 			<div style="font-size:10px">2. get hardware info
 				<input type="text" class="form-control" size="90" style="margin-bottom:3px;" id="input_par" value='{"emit":"hardWare","Obj":"pc"}' />
 				<button type="button" id="btn_Flash" onclick="input_App() " >do it</button>
@@ -38,7 +38,7 @@
 </div>
 
 </body>
-  <script src="AppEmit_0.1.js"></script>
+  <script src="AppEmit_0.1_min.js"></script>
 <script>
  
 	var init_App=function(){   
@@ -47,7 +47,7 @@
 	   
 	var input_App=   function(){
  
-	      var ReqPar={}; 
+	      var ReqPar={};
 	       ReqPar=JSON.parse(document.getElementById("input_par").value);
 		  
  		//   ReqPar={"emit":"open","Obj":"flash","src":"D:/work/temp/m1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0}}
