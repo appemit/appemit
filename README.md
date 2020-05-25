@@ -129,7 +129,7 @@ flashVars可以设置在src中
 
 ![目录](https://github.com/appemit/appemit/blob/master/docs/img/1_appemit_ActiveX.gif)
 
- ![image](https://github.com/appemit/appemit/blob/master/docs/img/2.3.1.1.png)
+ 
  
 刷新即可关闭flash
 
