@@ -5,6 +5,5 @@ Welcome to {{ site.home }}
 Email:{{ site.email }}
 &mdash;
  
-&mdash;
 Site: {{ site.source_link }}
 
