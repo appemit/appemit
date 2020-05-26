@@ -1,0 +1,64 @@
+<!DOCTYPE html>  <!--  manifest="/websocket.appcache"-->
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title> AppEmit 中间件,可以嵌入可以嵌入各类程序，包括flash、office,cad等</title>  
+	   <meta name="description" content=" AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。可在各个程序之间通信。">
+	<meta name="keywords" content=" Embed App,游戏,办公,websocket,SSL,plugins,flash,mp4,flv,swf, m3u8,rtmp,mp3,aac">
+    <script type="text/javascript">
+    </script>
+ 
+ 	<!-- json2 is included because some browsers doesnt have it (e.g. ie8)	-->
+	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+	
+
+ 
+</head>
+<body>
+
+
+<div class="container">
+    
+
+             <div style="font-size:10px">0. install/open Appemit.exe (F12 see console info)   &nbsp; &nbsp; &nbsp;&nbsp;<a href="AppEmbed.html" target="_blank">AppEmbed Demo</a> &nbsp;  &nbsp; &nbsp; &nbsp;<a href="http://www.appemit.com" target="_blank">Homepage: appemit.com</a> </div>
+			<div style="font-size:10px"> 1. connet websocket,support wss
+			<input type="text" class="form-control" size="80" style="margin-bottom:3px;" id="input_url" value="ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1" />
+			 <button type="button" id="btn_Flash" onclick="init_App() " >websocket</button>
+			 </div>
+
+
+			<div style="font-size:10px">2. get hardware info
+				<input type="text" class="form-control" size="90" style="margin-bottom:3px;" id="input_par" value='{"emit":"hardWare","Obj":"pc"}' />
+				<button type="button" id="btn_Flash" onclick="input_App() " >do it</button>
+			</div>
+		 
+			<div style="font-size:10px">3. emit msg to someone [All sids=cid, self_sid emit msg  to(distinct (toSids ∪ toSids)-self_sid) ]&nbsp; {"emit":"msg","toSids":["2"],"toGids":[1,2],"data":"hi, I'am Tom."} </div>           
+
+             <div  id="AppEmbedOut"></div>  
+ 
+</div>
+
+</body>
+  <script type="text/javascript" src="AppEmit_0.1_min.js"></script>
+ 
+<script>
+ 
+	var init_App=function(){   
+		initAppEmit(document.getElementById('input_url').value);
+	}
+	   
+	var input_App=   function(){
+ 
+	      var ReqPar={};
+	       ReqPar=JSON.parse(document.getElementById("input_par").value);
+		  
+ 		//   ReqPar={"emit":"open","Obj":"flash","src":"D:/work/temp/m1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0}}
+	
+	   	   startAppEmit(ReqPar);
+	   }
+ 
+ 
+
+</script>
+</html>
