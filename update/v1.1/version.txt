@@ -3,6 +3,6 @@
     "format":".lzma",
     "main":"\\update.exe",
     "updater":"\\update.exe",
-    "url":"http://update.aardio.com/api/v1",
+    "url":"https://github.com/appemit/appemit/blob/master/update/v1.1",
     "version":"0.0.0.03"
 }
