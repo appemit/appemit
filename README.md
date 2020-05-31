@@ -19,6 +19,8 @@ Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email	appemit(at)appemit.com	
  
+ 下载  [github]( https://cdn.jsdelivr.net/gh/appemit/appemit/archive/0.1.5.zip)
+ 
 ## 1.1	使用条件
 
 Windows系统，支持XP以上。
