@@ -19,7 +19,7 @@ Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email	appemit(at)appemit.com	
  
- 推荐分发下载地址：  [github]( https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+ 推荐分发下载地址：  [github]( https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
  
  
  
