@@ -10,9 +10,9 @@
     <script type="text/javascript">
     </script>
  
- 	<!-- json2 is included because some browsers doesnt have it (e.g. ie8)	-->
+ 	<!-- json2 is included because some browsers doesnt have it (e.g. ie8)	
 	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
- 
+ -->
 </head>
 <body>
 
@@ -29,6 +29,7 @@
 	<div style="font-size:10px">2. web swf file:  {"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}</div>
     <div style="font-size:10px">3. web vedio file:  {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}</div>
 	    <div style="font-size:10px">close flash:  {"emit":"close","Obj":"flash"}           &nbsp;  &nbsp; &nbsp;      or   &nbsp;   &nbsp; {"emit":"closeAll","Obj":"flash"}</div>      
+	    <div style="font-size:10px">Embed IE:  {"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null,"noScriptErr":true,"UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true}}</div>      
 
 		   </div>
              <div style="margin-top:10px;text-align:center">
@@ -38,7 +39,7 @@
 </div>
 
 </body>
-  <script type="text/javascript" src="AppEmit_0.1_min.js"></script>
+  <script type="text/javascript" src="AppEmit_0.2.js"></script>
 <script>
  
 	var init_App=function(){   
