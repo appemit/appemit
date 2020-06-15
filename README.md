@@ -150,7 +150,7 @@ flashVars可以设置在src中
 ```
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
  ```
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
+ ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1_appemit_ActiveX.gif)
 ### 2.3.2	NPAPI-嵌入web
 
 能打开常用网页，目前的插件不支持html5的媒体特性。如有需要，可以使用node或者electron插件。
