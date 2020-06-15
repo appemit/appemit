@@ -190,6 +190,9 @@ flashVars可以设置在src中
 设置htmlStr可以直接打开html源码。
 设置HttpServer_startUrl，可以打开本地的html文件。
 设置URL打开网页。 三者优先级依次下降。
+![目录]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+
+
 ### 2.4.2	Webkit内核
 "AppType":2使用webkit内核打开网页
 {"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
