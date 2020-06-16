@@ -31,9 +31,9 @@ Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email	appemit(at)appemit.com	
 
-[github下载地址 ]( https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+[github下载地址 ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
 
-[国内使用内容分发下载地址，更新有滞后 ]( https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+[国内使用内容分发下载地址，更新有滞后 ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
  
 ## 1.1	使用条件
 
@@ -43,7 +43,7 @@ Windows系统，支持XP以上。
 
 下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
 
-![目录]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
+![目录](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
 
  同时只能开启一个AppEmit.exe进程。
  
@@ -66,9 +66,9 @@ Dll文件开放了C接口，可以在此基础二次开发控件。
 在Html的js实现WebSocket，调用AppEmit通话。
 ```
 ws = new WebSocket(wsUrl);  
-ws.onopen = function (evt) {};
-ws.onmessage = function (evt) {};
-ws.onclose = function (evt) {};
+ws.onopen = function(evt) {};
+ws.onmessage = function(evt) {};
+ws.onclose = function(evt) {};
 ```
 ### 1.3.2	主要步骤，连接授权，发送命令
 
@@ -97,7 +97,7 @@ var init_AE={
 	以及播放flash的AppEmbed.html
 
 ## 1.4	联系
-邮件： appemit@appemit.com
+邮件： appemit(at)appemit.com
 
 
 # 2	插件场景
@@ -110,7 +110,7 @@ var init_AE={
 initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
 startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
 ```
-![PC信息]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
+![PC信息](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
 2.2	不同客户端通信
 
@@ -118,7 +118,7 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 连接Appemit授权后，在sid=1下发送命令。
 `{"emit":"msg","toSids":["2,3"],"toGids":[1,2],"data":"hi, I'am Tom."}`
 在客户cid全集下，通过唯一的sid对话，可以一对一，或者一对多通话。
- ![1对2和3通话]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png)
+ ![1对2和3通话](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png)
 图为1对2和3通话。
 
 另外还可以设置不同群gid，一个sid可以加入不同的gid。
@@ -129,7 +129,7 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 
 1、	使用客户端本地安装的Flash Player ActiveX控件，要是客户端没有，需要自行下载。下载地址：http://www.adobe.com/go/getflashplayer
 2、	使用Appemit程序自带的插件plugins/NPSWF32.dll
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
+ ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 ### 2.3.1	ActiveX形式
 
 #### 2.3.1.1	打开网络flash文件
@@ -142,7 +142,7 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 在客户端需要下载安装flash player ActiveX。
 路径是 / 或许 \\
 flashVars可以设置在src中
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.1.png)
+ ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1_appemit_ActiveX.gif)
  
 刷新即可关闭flash
 
@@ -152,7 +152,7 @@ flashVars可以设置在src中
 ```
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
  ```
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
+ ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
 ### 2.3.2	NPAPI-嵌入web
 
 能打开常用网页，目前的插件不支持html5的媒体特性。如有需要，可以使用node或者electron插件。
@@ -161,7 +161,7 @@ flashVars可以设置在src中
 ```
 {"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}
  ```
-  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
+  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
 ### 2.3.3	NPAPI-网络flash文件
 
 使用Appemit程序自带的插件NPSWF32.dll， 打开网络flash文件。
@@ -169,7 +169,7 @@ flashVars可以设置在src中
 ```
 {"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
  ```
-  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
+  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
 ### 2.3.4	NPAPI-网络媒体文件
 
 使用Appemit程序自带的插件NPSWF32.dll， 打开网络媒体文件，包括flv,mp4等。
@@ -177,7 +177,7 @@ flashVars可以设置在src中
 ```
 {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
 ```
-  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
+  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
 ## 2.4	关闭
 
 1.	刷新即可关闭flash
@@ -192,6 +192,9 @@ flashVars可以设置在src中
 设置htmlStr可以直接打开html源码。
 设置HttpServer_startUrl，可以打开本地的html文件。
 设置URL打开网页。 三者优先级依次下降。
+
+  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+  
 ### 2.4.2	Webkit内核
 "AppType":2使用webkit内核打开网页
 {"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}

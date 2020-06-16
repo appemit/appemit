@@ -109,7 +109,7 @@ And flash player AppEmbed.html
 
 ##1.4 contact
 
-Mail: appemit@appemit.com
+Mail: appemit(at)appemit.com
 
 
 #2. Plug in scenario
@@ -152,7 +152,7 @@ Two methods, mainly four forms of implementation scenarios
 
 2. Use the plug-in plugins / npswf32.dll provided with the appemit program
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
+![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
  
  ###2.3.1 ActiveX form
@@ -173,7 +173,7 @@ The path is / maybe\\
 
 Flashvars can be set in SRC
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.1.png)
+![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1_appemit_ActiveX.gif)
 
 Refresh to turn off flash
 
@@ -185,7 +185,7 @@ Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmld
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
 ```
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
+![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
 
 ###2.3.2 npapi embedded Web
 
@@ -199,7 +199,7 @@ After connecting authorization, send the command "apptype": 1.
 {"emit":"open","Obj":"flash","AppType":1,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp14/yzg/20140328/bombit7/zx_ game7.htm","pos":1}
 ```
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
+![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
 
 ###2.3.3 npapi network flash file
 
@@ -211,7 +211,7 @@ After connecting authorization, send the command "apptype": 2.
 {"emit":"open","Obj":"flash","AppType":2,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp18/liuxy/20160130/17801/ game.swf ","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
 ```
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
+![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
 
 ###2.3.4 npapi network media file
 
@@ -223,7 +223,7 @@ After connecting authorization, send the command "apptype": 3.
 {"emit":"open","Obj":"flash","AppType":3,"src":" https://media.html5media.info/video.mp4 ","pos":1,"par0":{"autoPlay":1,"loop":1}}
 ```
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
+![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
 
 ##2.4 close
 
@@ -245,7 +245,12 @@ Set htmlstr to open the HTML source directly.
 
 Set httpserver_ Starturl, you can open the local HTML file.
 
-Set the URL to open the web page. The priority of the three factors decreased in turn.
+Set the URL to open the web page. 
+
+The priority of the three factors decreased in turn.
+
+  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+  
 
 ###2.4.2 WebKit kernel
 
@@ -257,8 +262,9 @@ Set htmlstr to open the HTML source directly.
 
 Set httpserver_ Starturl, you can open the local HTML file.
 
-Set the URL to open the web page. The priority of the three factors decreased in turn.
+Set the URL to open the web page. 
 
+The priority of the three factors decreased in turn.
 
 Please pay attention.
 
