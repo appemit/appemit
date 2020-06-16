@@ -1,398 +1,617 @@
-AppEmit  v0.3.7 
-# 1	概述
+AppEmit v0.3.8
 
-AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5国际标准的Web Socket进行通话，默认为异步， JSON格式传递参数。主要实现功能：
-	
-### 主要实现功能：
-1)	在浏览器播放含有flash的网页或Flash文件，包括swf交互动画、flv影视等
+#1. Overview
 
-2)	在浏览器打开、操作本地文件，比如办公软件
+Appemit is a kind of extensible lightweight middleware that can communicate between applications (especially browsers) and local programs. It mainly uses HTML5 international standard web socket for calling, which is asynchronous by default and JSON format for parameter transmission. Main functions:
 
-3)	开发本地硬件DLL驱动模块的封装插件，实现在网页中操作控制本地的读卡器、打印机、扫描仪、高拍仪、U盾等各种硬件设备
+###Main functions:
 
-4)	各个应用程序之间通信
+1) Play the webpage or Flash file containing flash in the browser, including SWF interactive animation, flv movie, etc
 
-5)	在Chrome里嵌入IE内核网页
+2) Open and operate local files in browser, such as office software
 
-### 解决问题
-1)	国际市场份额68%以上的chrome浏览器（数据来源Netmarketshare；国内25%以上）在2020年12月后不再支持flash，而微软的edge也不支持ActiveX。
+3) Develop the package plug-in of the local hardware DLL driver module, realize the operation and control of the local hardware devices such as card reader, printer, scanner, high timer, U shield, etc. in the web page
 
-2)	客户习惯使用浏览器来处理各种业务。
+4) Communication between applications
 
-3)	游戏商、银行、医院、电力、硬件等企业客户使用dll、ActiveX、flash等文件的场景需要。
+5) Embed IE kernel web page in Chrome
 
- 
-程序名称	AppEmit.exe
+###Problem solving
 
-网址	[http://www.appemit.com](http://www.appemit.com)
+1) More than 68% of chrome browsers (data source: netmarketshare; over 25% in China) in the international market share no longer support flash after December 2020, and Microsoft's edge does not support ActiveX.
 
-Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
+2) Customers are used to using browsers to handle various businesses.
 
-Email	appemit(at)appemit.com	
+3) The scene needs for DLL, ActiveX, flash and other files used by enterprise customers such as game vendors, banks, hospitals, power, hardware, etc.
 
-[github下载地址：]( https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
-[国内使用内容分发下载地址：]( https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
- 
-## 1.1	使用条件
 
-Windows系统，支持XP以上。
+Program name AppEmit.exe
 
-## 1.2	用法
+Website[ http://www.appemit.com ] http://www.appemit.com )
 
-下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
+Github[ https://github.com/appemit/appemit ] https://github.com/appemit/appemit )
 
-![目录]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
+Email appemit(at) appemit.com
 
- 同时只能开启一个AppEmit.exe进程。
- 
-	直接运行，如果本机已经运行了AppEmit.exe，则不做处理。
+[GitHub download address:]（ https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip )
 
-	如果本机已经有程序AppEmit.exe运行，右键以管理员方式运行，则关闭老进程，开启新的进程。
+[domestic content distribution download address, update lag:]（ https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip )
 
-## 1.3	技术实现
+##1.1 service conditions
 
-Web Socket采用开源控件[HPSocket](https://github.com/ldcsaa/HP-Socket)，支持ssl。
+Windows system, support XP or above.
 
-Dll文件开放了C接口，可以在此基础二次开发控件。
+##1.2 usage
 
-	HPSocket4C_U.dll
+Download the installation free program appemit (excluding plug-ins less than 6m), run AppEmit.exe Just. It is set to start up automatically and avoid being shut down by antivirus software.
 
-	HPSocket4C-SSL_U.dll
+! [contents]（ https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png )
 
-### 1.3.1	实现过程
+Only one can be opened at the same time AppEmit.exe Process.
 
-在Html的js实现WebSocket，调用AppEmit通话。
-```
-ws = new WebSocket(wsUrl);  
+Direct operation, if the machine is already running AppEmit.exe , no processing.
+
+If there are already procedures on this machine AppEmit.exe Run, right-click to run in administrator mode, then close the old process and start a new process.
+
+##1.3 technical realization
+
+Web socket adopts open source control [hpsocket]（ https://github.com/ldcsaa/HP-Socket ）, support SSL.
+
+The DLL file opens the C interface, on which the control can be redeveloped.
+
+ HPSocket4C_ U.dll
+
+ HPSocket4C-SSL_ U.dll
+
+###1.3.1 implementation process
+
+In the JS of HTML, websocket is implemented to call the appemit call.
+
+` ` ` `
+
+ws = new WebSocket(wsUrl);
+
 ws.onopen = function (evt) {};
+
 ws.onmessage = function (evt) {};
+
 ws.onclose = function (evt) {};
-```
-### 1.3.2	主要步骤，连接授权，发送命令
 
-1.	网页注册后获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=10000-0测试。
-2.	连接Appemit服务
-initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
-3.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
-```
-var init_AE={
-		 "clientKey":"temp-0000000000",  
-		  "browser":ThisBrowser,
-		  "wsUrl":wsUrl,
-		//  "sid":"1",         
-		  "gid":"[1,2]",      
-  }
+` ` ` `
 
-  EmitReq_PaOP(init_AE);
-  ```
-4.	发送命令
+###1.3.2 main steps, connection authorization, sending command
+
+1. After the web page is registered, it is set with CID and clientkey to obtain connection authorization. Or test with temporary account CID = 10000-0.
+
+2. Connect to the appemit service
+
+initAppEmit("ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1 ""
+
+3. Set the clientkey authorization (clientkey is private, and JS needs to be encrypted after publishing) initialization data and authorization, etc
+
+` ` ` `
+
+var init_ AE={
+
+"clientKey":"temp-0000000000",
+
+"browser":ThisBrowser,
+
+"wsUrl":wsUrl,
+
+// "sid":"1",
+
+"gid":"[1,2]",
+
+}
+
+EmitReq_ PaOP(init_ AE);
+
+` ` ` `
+
+4. Send command
 
 `startAppEmit('{"emit":"hardWare","Obj":"pc"}') `
 
-### 1.3.3	demo
-在demo下主要是html的举例，
-	包括获取pc信息，实现通话的index.html
-	以及播放flash的AppEmbed.html
+### 1.3.3 demo
 
-## 1.4	联系
-邮件： appemit@appemit.com
+In demo, it is mainly an example of HTML,
+
+Including obtaining PC information to realize the communication index.html
+
+And flash player AppEmbed.html
+
+##1.4 contact
+
+Mail: appemit@appemit.com
 
 
-# 2	插件场景
+#2. Plug in scenario
 
-## 2.1	获取客户端信息
+##2.1 obtaining client information
 
-使用浏览器打开demo下的index.html。授权连接后，发送获取PC信息命令。
+Use the browser to open the index.html 。 After authorized connection, send the command to get PC information.
 
-```
-initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
-startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
-```
-![PC信息]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
+` ` ` `
 
-2.2	不同客户端通信
+initAppEmit("ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1 ""
 
-打开demo下的index.html,模拟不同sid打开浏览器。
-连接Appemit授权后，在sid=1下发送命令。
+startAppEmit('{"emit":"hardWare","Obj":"pc"}')
+
+` ` ` `
+
+! [PC information]（ https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png )
+
+2.2 communication between different clients
+
+Open the index.html , simulate different Sid to open browser.
+
+After connecting to the approval authority, send the command under sid = 1.
+
 `{"emit":"msg","toSids":["2,3"],"toGids":[1,2],"data":"hi, I'am Tom."}`
-在客户cid全集下，通过唯一的sid对话，可以一对一，或者一对多通话。
- ![1对2和3通话]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png)
-图为1对2和3通话。
 
-另外还可以设置不同群gid，一个sid可以加入不同的gid。
-发送消息时，在cid全集下，所有的toSids和toGids取对应的sid交集剔重，并排除自身。
+In the full set of customer CID, one-to-one or one to many calls can be made through a unique Sid conversation.
 
-2.3	Flash
-两种方法，主要四种形式实现场景
+! [1 to 2 and 3 calls]（ https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png )
 
-1、	使用客户端本地安装的Flash Player ActiveX控件，要是客户端没有，需要自行下载。下载地址：http://www.adobe.com/go/getflashplayer
-2、	使用Appemit程序自带的插件plugins/NPSWF32.dll
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
-### 2.3.1	ActiveX形式
+The picture shows 1-to-2 and 3 calls.
 
-#### 2.3.1.1	打开网络flash文件
-打开demo下的AppEmbed.html,连接授权后，发送使用ActiveX（"AppType":0）打开网络flash文件命令，参数如下。
-```
-{"emit":"open","Obj":"flash","AppType":0,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
-```
-注意事项：
+In addition, different groups of GIDS can be set, and a SID can add different GIDS.
 
-在客户端需要下载安装flash player ActiveX。
-路径是 / 或许 \\
-flashVars可以设置在src中
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1_appemit_ActiveX.gif)
+When sending a message, under the full set of CID, all the tosids and togids take the corresponding Sid intersection to get rid of duplication and exclude themselves.
+
+2.3 Flash
+
+Two methods, mainly four forms of implementation scenarios
+
+1. Use the flash player ActiveX control installed locally on the client. If the client does not have it, you need to download it by yourself. Download address: http://www.adobe.com/go/getflashplayer
+
+2. Use the plug-in plugins / npswf32.dll provided with the appemit program
+
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png )
+
  
-刷新即可关闭flash
+ ###2.3.1 ActiveX form
 
-#### 2.3.1.2	打开本地flash文件
 
-可以是绝对或者相对路径，相对于AppEmit.exe的路径："demo/htmlDemo/test1.swf"。
-```
+####2.3.1.1 open network flash file
+
+Open the AppEmbed.html , after the connection is authorized, send the command to open the network flash file using ActiveX ("apptype": 0). The parameters are as follows.
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+
+` ` ` `
+
+matters needing attention:
+
+You need to download and install flash player ActiveX on the client.
+
+The path is / maybe\\
+
+Flashvars can be set in SRC
+
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.1.png )
+
+Refresh to turn off flash
+
+####2.3.1.2 open local flash file
+
+Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmldemo / test1. SWF'.
+
+` ` ` `
+
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
- ```
- ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
-### 2.3.2	NPAPI-嵌入web
 
-能打开常用网页，目前的插件不支持html5的媒体特性。如有需要，可以使用node或者electron插件。
-使用Appemit程序自带的插件NPSWF32.dll，能打开嵌有flash的网页。
-连接授权后，发送命令"AppType":1的形式。
-```
-{"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}
- ```
-  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
-### 2.3.3	NPAPI-网络flash文件
+` ` ` `
 
-使用Appemit程序自带的插件NPSWF32.dll， 打开网络flash文件。
-连接授权后，发送命令"AppType":2的形式。
-```
-{"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
- ```
-  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
-### 2.3.4	NPAPI-网络媒体文件
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png )
 
-使用Appemit程序自带的插件NPSWF32.dll， 打开网络媒体文件，包括flv,mp4等。
-连接授权后，发送命令"AppType":3的形式。
-```
-{"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
-```
-  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
-## 2.4	关闭
+###2.3.2 npapi embedded Web
 
-1.	刷新即可关闭flash
-2.	`{"emit":"close","Obj":"flash"}`
-3.	`{"emit":"closeAll","Obj":"flash"}`
+The current plug-in does not support the media features of HTML5. If necessary, you can use the node or electronic plug-in.
 
-## 2.5	Web
-### 2.4.1	IE 内核
-"AppType":1使用IE内核打开网页
-{"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null,"noScriptErr":true, "UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true}}
+Using the plug-in npswf32.dll of the appemit program, you can open the webpage with flash embedded.
 
-设置htmlStr可以直接打开html源码。
-设置HttpServer_startUrl，可以打开本地的html文件。
-设置URL打开网页。 三者优先级依次下降。
-![目录]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+After connecting authorization, send the command "apptype": 1.
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":1,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp14/yzg/20140328/bombit7/zx_ game7.htm","pos":1}
+
+` ` ` `
+
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png )
+
+###2.3.3 npapi network flash file
+
+Open the network flash file by using the plug-in npswf32.dll of the appemit program.
+
+After connecting authorization, send the command "apptype": 2.
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":2,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp18/liuxy/20160130/17801/ game.swf ","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
+
+` ` ` `
+
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png )
+
+###2.3.4 npapi network media file
+
+Use the plug-in npswf32.dll of the appemit program to open network media files, including flv, MP4, etc.
+
+After connecting authorization, send the command "apptype": 3.
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":3,"src":" https://media.html5media.info/video.mp4 ","pos":1,"par0":{"autoPlay":1,"loop":1}}
+
+` ` ` `
+
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png )
+
+##2.4 close
+
+1. Refresh to turn off flash
+
+2. `{"emit":"close","Obj":"flash"}`
+
+3. `{"emit":"closeAll","Obj":"flash"}`
+
+## 2.5 Web
+
+###2.4.1 IE kernel
+
+"Apptype": 1 use IE kernel to open web page
+
+{"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_ startUrl":null,"URL":" http://www.appemit.com "},"par0":{"header":null,"noScriptErr":true, "UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true}}
+
+Set htmlstr to open the HTML source directly.
+
+Set httpserver_ Starturl, you can open the local HTML file.
+
+Set the URL to open the web page. The priority of the three factors decreased in turn.
+
+###2.4.2 WebKit kernel
+
+"Apptype": 2 use WebKit kernel to open web page
+
+{"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_ startUrl":null,"URL":" http://www.appemit.com "},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
+
+Set htmlstr to open the HTML source directly.
+
+Set httpserver_ Starturl, you can open the local HTML file.
+
+Set the URL to open the web page. The priority of the three factors decreased in turn.
 
 
-### 2.4.2	Webkit内核
-"AppType":2使用webkit内核打开网页
-{"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
+Please pay attention.
 
-设置htmlStr可以直接打开html源码。
-设置HttpServer_startUrl，可以打开本地的html文件。
-设置URL打开网页。 三者优先级依次下降。
+#3. Parameters
 
+##3.1 connection
 
-请关注。
+ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1
 
-# 3	参数
+Description of name setting Meaning
 
-## 3.1	连接
+Protocol WS SSL is WSS
 
-ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1
+Website: localhost
 
- 名称 设置 含义 说明
- 协议	  ws	  SSL为wss	
-网址   Localhost
-127.0.0.1		
-Port	80	默认	可以在config.in修改
-	443	ssl默认	可以在config.in修改
-path	appemit	必需	
-para	cid	必需。10000-0为免费账号。	全集。
-	sid	可选。唯一session或者用户名ID	测试最好在js中实现
-	flag	可选。默认0，非调试。
-1调试	
+127.0.0.1
 
-## 3.2	初始化数据
-```
-var init_AE={
- 		"clientKey":"temp-0000000000",  
-		"browser":ThisBrowser,
-		"wsUrl":wsUrl,
-		 "sid":"123456",        									 
-        "gid":"[1,2]"                                             
-	 }
-```			
-名称	设置	含义	说明
-客户端clientKey	temp-0000000000	必需,与cid对应。	保密，js应该混淆加密。
-browser	 ThisBrowser	默认	
-wsUrl	wsUrl	默认	可以在config.in修改
-用户sid		非必需。唯一才可以正常通话。	生产环境，同一设置于此。
-群gid	数组	非必需	一个sid可有不同gid
+Port 80 can be set in config.in modify
 
-## 3.3	命令
+443 SSL can be used in config.in modify
 
-### 3.3.1	硬件信息
+Path append required
+
+Para CID required. 10000-0 is a free account. Complete.
+
+Sid optional. The unique session or user ID test is best implemented in JS
+
+Flag optional. Default 0, not debug.
+
+1 commissioning
+
+##3.2 initialization data
+
+` ` ` `
+
+var init_ AE={
+
+"clientKey":"temp-0000000000",
+
+"browser":ThisBrowser,
+
+"wsUrl":wsUrl,
+
+"sid":"123456",
+
+"gid":"[1,2]"
+
+}
+
+` ` ` `
+
+Description of name setting Meaning
+
+Client clientkey temp 0000000000 is required, corresponding to CID. Confidentiality, JS should confuse encryption.
+
+Browser thisbrowser default
+
+Wsurl wsurl default can be found in config.in modify
+
+User sid is not required. The only way to talk normally. Production environment, the same setting here.
+
+Group GID array unnecessary a SID can have different GIDS
+##3.3 command
+
+###3.3.1 hardware information
 
 `{"emit":"hardWare","Obj":"pc"}`
-名称	设置	含义	说明
-emit	hardWare	必需。通信请求。	
-Obj	pc	必需。目标对象。	
 
-### 3.3.2	通话
+Description of name setting Meaning
+
+Emit hardware is required. Communication request.
+
+Obj PC required. Target object.
+
+###3.3.2 call
 
 `{"emit":"msg","toSids":["2"],"toGids":[1,2],"data":"hi, I'am Tom."}`
-名称	设置	含义	说明
-emit	msg	必需。通信事件请求。	
-toSids	必需要有一个	非必需。可以是数组。	
-toGids		非必需。可以是数组。	
-data		必需。	
 
-### 3.3.3	打开事件
+Description of name setting Meaning
 
-参数格式如下
-名称	设置	含义	说明
-emit	open	必需。打开控件APP通信事件请求。	
-Obj		必需。
-flash默认 
-word 后续支持
-excel后续支持
-CAD后续支持	
-par0			
+Emit MSG required. Communication event request.
 
-#### 3.3.3.1	"AppType":0打开flash
-```
-{"emit":"open","Obj":"flash","AppType":0,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
-```
-名称	设置	含义	说明
-emit	open	必需。打开控件APP通信事件请求。	
-Obj	flash	必需。
-flash默认 
-word 后续支持
-excel后续支持
-CAD后续支持	
-AppType	0	必需。
+Tosids must have a nonessential. It can be an array.
+
+Togids is not required. It can be an array.
+
+Data is required.
+
+###3.3.3 open event
+
+The parameter format is as follows
+
+Description of name setting Meaning
+
+Exit open required. Open control app communication event request.
+
+Obj required.
+
+Flash default
+
+Word follow-up support
+
+Excel follow-up support
+
+CAD follow up support
+
+par0
+
+####3.3.3.1 "apptype": 0 open flash
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+
+` ` ` `
+
+Description of name setting Meaning
+
+Exit open required. Open control app communication event request.
+
+Obj flash required.
+
+Flash default
+
+Word follow-up support
+
+Excel follow-up support
+
+CAD follow up support
+
+Apptype 0 is required.
+
 0 ActiveX
+
 1 web
-2 web flash文件
-3 web媒体文件	设为0时，如何本地没有安装ActiveX默认使用方式2打开
-src		必需。
-	AppType为0时支持本地文件，可以是相对或者绝对路径。
-pos	控件APP窗口的位置	必需。
-1 默认使用代码识别的位置。	
-par0	autoPlay	可选。
-0 不自动播放
-1自动播放，默认	
-	toolbar	可选。
-0 没有控制条，默认
-1 有控制条	
-	rightMenu	可选。
-0	
-	hitCaption	可选。
-0 左按鼠标不能拖动，默认
-1 左按鼠标能拖动	
-	hideStop	可选。
-0 隐藏不见时不停止播放，默认
-1隐藏不见时停止播放	
-	loop	可选。
-0 不自动循环播放， 
-1 循环播放，默认	
-	volumeMute	可选。
-0 不静音，默认
-1 静音	
-	flashVars	可选。	可以设置在src里面
-pos	{"left":372,"top":203,"width":606,"height":406}	必需。
-1 默认使用代码自动识别的位置。	对不同的浏览器，自动识别的位置需要优化
+
+2 Web flash file
+
+3. When the web media file is set to 0, how to open it without ActiveX default usage 2 installed locally
+
+SRC required.
+
+When apptype is 0, local files are supported, which can be relative or absolute paths.
+
+The position of the app window of the POS control is required.
+
+1 the location identified by the code is used by default.
+
+Par0 autoplay is optional.
+
+0 does not play automatically
+
+1 autoplay, default
+
+Toolbar optional.
+
+0 has no control bar, default
+
+1 with control strip
+
+Rightmenu is optional.
+
+Zero
+
+Hitcaption is optional.
+
+0 left click mouse can't drag, default
+
+1 left click to drag
+
+Hidestop optional.
+
+0 don't stop playing when hidden, default
+
+1 stop playing when hidden
+
+Loop is optional.
+
+0 does not cycle automatically,
+
+1 loop, default
+
+Volumemute is optional.
+
+0 no mute, default
+
+1 mute
+
+Flashvars is optional. Can be set in SRC
+
+POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
+
+1 by default, the location recognized by the code is used. For different browsers, the location of automatic identification needs to be optimized
 
 
-#### 3.3.3.2	"AppType":1打开flash
-```
-{"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}
-```
-名称	设置	含义	说明
-emit	open	必需。打开控件APP通信事件请求。	
-Obj	flash	必需。	
-AppType	1	必需。
+####3.3.3.2 "apptype": 1 open flash
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":1,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp14/yzg/20140328/bombit7/zx_ game7.htm","pos":1}
+
+` ` ` `
+
+Description of name setting Meaning
+
+Exit open required. Open control app communication event request.
+
+Obj flash required.
+
+Apptype 1 is required.
+
 0 ActiveX
-1 web
-2 web flash文件
-3 web媒体文件	设为0时，如何本地没有安装ActiveX默认使用方式2打开
-src		必需。
-	AppType为0时支持本地文件，可以是相对或者绝对路径。
-pos	{"left":372,"top":203,"width":606,"height":406}	必需。
-1 默认使用代码自动识别的位置。	对不同的浏览器，自动识别的位置需要优化
 
-#### 3.3.3.3	"AppType":2打开flash
-```
-{"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
-```
-名称	设置	含义	说明
-emit	open	必需。打开控件APP通信事件请求。	
-Obj	flash	必需。	
-AppType	3	必需。
-0 ActiveX
 1 web
-2 web flash文件
-3 web媒体文件	设为0时，如何本地没有安装ActiveX默认使用方式2打开
-src		必需。
-	AppType为0时支持本地文件，可以是相对或者绝对路径。
-pos	{"left":372,"top":203,"width":606,"height":406}	必需。
-1 默认使用代码自动识别的位置。	对不同的浏览器，自动识别的位置需要优化
-par0	autoPlay	可选。默认true	参考flash官方默认参数。
-	loop	可选。默认true	参考flash官方默认参数。
-	quality	可选。默认high	参考flash官方默认参数。
-	wmode	可选。默认Transparent	参考flash官方默认参数。
 
-#### 3.3.3.4	"AppType":3打开flash
-```
-{"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
-```
-名称	设置	含义	说明
-emit	open	必需。打开控件APP通信事件请求。	
-Obj	flash	必需。	
-AppType	3	必需。
+2 Web flash file
+
+3. When the web media file is set to 0, how to open it without ActiveX default usage 2 installed locally
+
+SRC required.
+
+When apptype is 0, local files are supported, which can be relative or absolute paths.
+
+POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
+
+1 by default, the location recognized by the code is used. For different browsers, the location of automatic identification needs to be optimized
+
+####3.3.3.3 "apptype": 2 open flash
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":2,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp18/liuxy/20160130/17801/ game.swf ","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
+
+` ` ` `
+
+Description of name setting Meaning
+
+Exit open required. Open control app communication event request.
+
+Obj flash required.
+
+Apptype 3 is required.
+
 0 ActiveX
+
 1 web
-2 web flash文件
-3 web媒体文件	设为0时，如何本地没有安装ActiveX默认使用方式2打开
-src		必需。
-	AppType为0时支持本地文件，可以是相对或者绝对路径。
-pos	{"left":372,"top":203,"width":606,"height":406}	必需。
-1 默认使用代码自动识别的位置。	对不同的浏览器，自动识别的位置需要优化
-par0	autoPlay	可选。默认1	参考
+
+2 Web flash file
+
+3. When the web media file is set to 0, how to open it without ActiveX default usage 2 installed locally
+
+SRC required.
+
+When apptype is 0, local files are supported, which can be relative or absolute paths.
+
+POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
+
+1 by default, the location recognized by the code is used. For different browsers, the location of automatic identification needs to be optimized
+
+Par0 autoplay is optional. Default true refers to the official flash default parameter.
+
+Loop is optional. Default true refers to the official flash default parameter.
+
+Quality is optional. Default high refers to the official flash default parameter.
+
+Wmode is optional. Default transparent refers to the official flash default parameters.
+
+####3.3.3.4 "apptype": 3 open flash
+
+` ` ` `
+
+{"emit":"open","Obj":"flash","AppType":3,"src":" https://media.html5media.info/video.mp4 ","pos":1,"par0":{"autoPlay":1,"loop":1}}
+
+` ` ` `
+
+Description of name setting Meaning
+
+Exit open required. Open control app communication event request.
+
+Obj flash required.
+
+Apptype 3 is required.
+
+0 ActiveX
+
+1 web
+
+2 Web flash file
+
+3. When the web media file is set to 0, how to open it without ActiveX default usage 2 installed locally
+
+SRC required.
+
+When apptype is 0, local files are supported, which can be relative or absolute paths.
+
+POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
+
+1 by default, the location recognized by the code is used. For different browsers, the location of automatic identification needs to be optimized
+
+Par0 autoplay is optional. Default 1 reference
+
 https://player.alicdn.com/aliplayer/setting/setting.html
-	loop	可选。默认1	
-3.3.3.5	 IE内核打开网页 
-{"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null,"noScriptErr":true,"UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true}}
 
-名称	设置	含义	说明
-emit	open	必需。打开网页事件请求。	
-Obj	web	必需。	
-AppType	1	必需。
-1 IE内核
-2 webkit内核	 
-pos	{"left":372,"top":203,"width":606,"height":406}	必需。
-1 默认使用代码自动识别的位置。
-	对不同的浏览器，自动识别的位置需要优化
-par		必需。优先级别依次下降	三个参数必须有一个不是空。
-htmlStr		Html代码	
-HttpServer_startUrl		以服务器形式打开本地html文件路径，可以是绝对或者相对路径。/为分隔符。	
-URL	http://www.appemit.com 或者
-/demo/htmlDemo/html.html	支持网页地址或者本地html文件路径。	
-Par0		可选。	
-header		头部	
-noScriptErr	bool	默认true
+Loop is optional. Default 1
+
+3.3.3.5
+“[emit]” http://www.appemit.com/ "..." (...) master, "(...) null 'null nosripterr“
+Representation, description
+It is necessary to open
+Obj web required.
+AppType 1
+No.1
+2 WebKit 2 download
+POS {left]:
+1. Language requirements
+yes
+(adverbial infinitive)
+htmlStr-Html
+Httpserver \ u starturl task executor
+URL http://www.appemit.com/ Donors
+/demo htmldemo/ html.html http://www.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.x
+Paragraph 0
+Cephalic type
+noScript
 Ture
-false	
+false
 UIFLAG		_UIFLAG_DIALOG=@0x1/*_UIFLAG_DIALOG*/
 _UIFLAG_DISABLE_HELP_MENU=@0x2/*_UIFLAG_DISABLE_HELP_MENU*/
 _UIFLAG_NO3DBORDER=@0x4/*_UIFLAG_NO3DBORDER*/
@@ -444,121 +663,94 @@ _DLCTL_FORCEOFFLINE=@0x10000000/*_DLCTL_FORCEOFFLINE*/
 _DLCTL_NO_CLIENTPULL=@0x20000000/*_DLCTL_NO_CLIENTPULL*/
 _DLCTL_SILENT=@0x40000000/*_DLCTL_SILENT*/
 _DLCTL_OFFLINEIFNOTCONNECTED=@0x80000000/*_DLCTL_OFFLINEIFNOTCONNECTED*/
-_DLCTL_OFFLINE=@0x80000000/*_DLCTL_OFFLINE*/	控制下载行为。| 连接
-userAgent		代理	
-crossDomain	bool	默认true
+_DLCTL_OFFLINE=@0x80000000/*_DLCTL_OFFLINE*/	Control download behavior. |Connect
+Useragent agent
+Crossdomain bool default true
 Ture
-false	
-3.3.3.6	 webkit内核打开网页 
-{"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
-
-名称	设置	含义	说明
-emit	open	必需。打开网页事件请求。	
-Obj	web	必需。	
-AppType	2	必需。
-1 IE内核
-2 webkit内核	 
-pos	{"left":372,"top":203,"width":606,"height":406}	必需。
-1 默认使用代码自动识别的位置。
-	对不同的浏览器，自动识别的位置需要优化
-par		必需。优先级别依次下降	三个参数必须有一个不是空。
-htmlStr		Html代码	
-HttpServer_startUrl		以服务器形式打开本地html文件路径，可以是绝对或者相对路径。/为分隔符。	
-URL	http://www.appemit.com 或者
-/demo/htmlDemo/html.html	支持网页地址或者本地html文件路径。	
-Par0		可选。	
-header		头部	
-userAgent		代理	
-crossDomain	bool	默认true
+false
+3.3.3.6 WebKit kernel opens Web page
+{"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_ startUrl":null,"URL":" http://www.appemit.com "},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
+Description of name setting Meaning
+Exit open required. Open web event request.
+Obj web required.
+Apptype 2 is required.
+1 IE kernel
+2 WebKit kernel
+POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
+1 by default, the location recognized by the code is used.
+For different browsers, the location of automatic identification needs to be optimized
+Par required. Priority descending in sequence: one of the three parameters must not be empty.
+Htmlstr HTML code
+HttpServer_ Starturl opens the local HTML file path as a server, which can be absolute or relative. /Is the separator.
+URL	 http://www.appemit.com  perhaps
+/demo/htmlDemo/ html.html	 Support web address or local HTML file path.
+Par0 optional.
+Header
+Useragent agent
+Crossdomain bool default true
 Ture
-false	
+false
 	
-### 3.3.4	关闭
-
-#### 3.3.4.1	关闭sid对应APP
-
+###3.3.4 close
+####3.3.4.1 close the app corresponding to Sid
 `{"emit":"close","Obj":"flash"}`
-
-名称	设置	含义	说明
-emit	close	必需。关闭控件APP通信事件请求。	
-Obj	flash	必需。	
-
-#### 3.3.4.2	关闭cid所有APP
-
+Description of name setting Meaning
+Exit close required. Close the control app communication event request.
+Obj flash required.
+####3.3.4.2 close all app of CID
 `{"emit":"closeAll","Obj":"flash"}`
-
-名称	设置	含义	说明
-emit	close	必需。关闭所有控件APP通信事件请求。	关闭在cid下运行的所有控件APP
-Obj	flash	必需。
-##  3.4	获得参数
- {"emit":"getPar","Obj":"clientAuth"}
-
-名称	设置	含义	说明
-emit	getPar	必需。获得参数请求。	
-Obj	clientAuth	是否授权
-1 授权
-0 无	
-			
-##  3.5	设置参数
- {"emit":"setPar","Obj":"flash","topMost":true}
-
-名称	设置	含义	说明
-emit	getPar	必需。获得参数请求。	
-Obj	flash	必需。	
-topMost		必需。
-True 置顶
-False 取消置顶	
-##  3.6	AppEmit操作
-###  3.6.1	错误信息
+Description of name setting Meaning
+Exit close required. Close all control app communication event requests. Close all control apps running under CID
+Obj flash required.
+##3.4 obtaining parameters
+{"emit":"getPar","Obj":"clientAuth"}
+Description of name setting Meaning
+Emit getPar is required. Get parameter request.
+Whether obj clientauth is authorized
+1 authorization
+0 none
+##3.5 setting parameters
+{"emit":"setPar","Obj":"flash","topMost":true}
+Description of name setting Meaning
+Emit getpar required. Get parameter request.
+Obj flash required.
+Topmost is required.
+True top
+False cancel top
+##3.6 appemit operation
+###3.6.1 error message
 {"emit":" lasterr "}
-
-名称	设置	含义	说明
-emit	lasterr	必需。获得最近错误请求。	"
-
-###  3.6.2	重启
+Description of name setting Meaning
+Emit laster is required. Get the most recent error request. "
+###3.6.2 restart
 {"emit":"restart","Obj":"AppEmit"}
-
-名称	设置	含义	说明
-emit	restart	必需。AppEmit重启请求。	重启后client需要重新连接。
-Obj	AppEmit	必需。	
-###  3.6.3	更新
+Description of name setting Meaning
+Exit restart required. Appemit restart request. The client needs to be reconnected after restart.
+Obj appemit required.
+###3.6.3 update
 {"emit":"update","Obj":"AppEmit"}
-
-名称	设置	含义	说明
-emit	update	必需。询问AppEmit是否更新程序请求。	默认强制更新。如果config.ini里面设置autoUpdate=0，则询问更新。
-Obj	AppEmit	必需。	
-
-
-###  3.6.4	关于
+Description of name setting Meaning
+Emit update required. Ask appemit whether to update the program request. Forced update by default. If config.ini If AutoUpdate = 0 is set in it, you will be asked to update.
+Obj appemit required.
+###3.6.4 about
 {"emit":"about","Obj":"AppEmit"}
-
-名称	设置	含义	说明
-emit	about	必需。获得关于请求。	返回
-{"data":{"appName":"AppEmit","url":"http://www.appemit.com/","verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"}," }
-Obj	AppEmit	必需。	
-
-###  3.6.5	版本信息
+Description of name setting Meaning
+Emit about is required. Get about the request. Back
+{"data":{"appName":"AppEmit","url":" http://www.appemit.com/ ","verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"}," }
+Obj appemit required.
+###3.6.5 version information
 {"emit":"version","Obj":"AppEmit"}
-
-名称	设置	含义	说明
-emit	version	必需。获得版本请求。	{"data":{"verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"},"
-Obj	AppEmit	必需。	
-
-	
-
-# 4	问题
-1.	支持linux mac？
-
-目前版本不支持，使用在windows系统上。
-2.	免费版本有何限制条件？
-
-每80次消息发送时有弹窗。
-收费版本没有限制，包括支持局域网。
-
-3.	测试点击连接，为何没有反应？ 
-
-首先要打开AppEmit.exe服务，可以F12查看报错情况。重启系统后，AppEmit.exe进程自动开启，没有被关闭。
-4.	如何开发插件？
-
-使用HPSocket的C接口。目前在测试中。
+Description of name setting Meaning
+Emit version required. Get version request. 	{"data":{"verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"},"
+Obj appemit required.
+#4. Questions
+1. Support Linux Mac?
+It is not supported in the current version and  used on Windows system.
+2. What are the limitations of the free version?
+There are pop ups every 80 messages sent.
+There is no limit to the charging version, including LAN support.
+3. Why didn't the test Click to connect respond?
+Open first AppEmit.exe Service. You can check the error reporting status in F12. After restarting the system, AppEmit.exe The process started automatically and was not shut down.
+4. How to develop plug-ins?
+Use the C interface of hpsocket. Currently under test.
 
