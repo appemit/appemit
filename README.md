@@ -631,7 +631,9 @@ Useragent agent
 Crossdomain bool default true
 Ture
 false
-3.3.3.6 WebKit kernel opens Web page
+
+#### 3.3.3.6 WebKit kernel opens Web page
+
 {"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_ startUrl":null,"URL":" http://www.appemit.com "},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
 Description of name setting Meaning
 Exit open required. Open web event request.

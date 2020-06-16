@@ -451,7 +451,9 @@ userAgent		代理
 crossDomain	bool	默认true
 Ture
 false	
-3.3.3.6	 webkit内核打开网页 
+
+#### 3.3.3.6	 webkit内核打开网页
+ 
 {"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
 
 名称	设置	含义	说明
