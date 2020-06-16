@@ -33,9 +33,9 @@ Github[https://github.com/appemit/appemit ](https://github.com/appemit/appemit)
 
 Email appemit(at) appemit.com
 
-[GitHub download address:](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+[GitHub download address ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
 
-[domestic content distribution download address, update lag:](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+[domestic content distribution download address, update lag ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
 
 ##1.1 service conditions
 
@@ -45,7 +45,7 @@ Windows system, support XP or above.
 
 Download the installation free program appemit (excluding plug-ins less than 6m), run AppEmit.exe Just. It is set to start up automatically and avoid being shut down by antivirus software.
 
-! [contents](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
+![contents](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
 
 Only one can be opened at the same time AppEmit.exe Process.
 
@@ -140,7 +140,7 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 
 ` ` ` `
 
-! [PC information](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
+![PC information](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
 2.2 communication between different clients
 
@@ -152,7 +152,7 @@ After connecting to the approval authority, send the command under sid = 1.
 
 In the full set of customer CID, one-to-one or one to many calls can be made through a unique Sid conversation.
 
-! [1 to 2 and 3 calls](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png)
+![1 to 2 and 3 calls](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png)
 
 The picture shows 1-to-2 and 3 calls.
 
