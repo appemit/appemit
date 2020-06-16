@@ -1,10 +1,10 @@
 AppEmit v0.3.8
 
-#1. Overview
+# 1. Overview
 
 Appemit is a kind of extensible lightweight middleware that can communicate between applications (especially browsers) and local programs. It mainly uses HTML5 international standard web socket for calling, which is asynchronous by default and JSON format for parameter transmission. Main functions:
 
-###Main functions:
+### Main functions:
 
 1) Play the webpage or Flash file containing flash in the browser, including SWF interactive animation, flv movie, etc
 
@@ -16,7 +16,7 @@ Appemit is a kind of extensible lightweight middleware that can communicate betw
 
 5) Embed IE kernel web page in Chrome
 
-###Problem solving
+### Problem solving
 
 1) More than 68% of chrome browsers (data source: netmarketshare; over 25% in China) in the international market share no longer support flash after December 2020, and Microsoft's edge does not support ActiveX.
 
@@ -37,11 +37,11 @@ Email appemit(at) appemit.com
 
 [domestic content distribution download address, update lag ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
 
-##1.1 service conditions
+## 1.1 service conditions
 
 Windows system, support XP or above.
 
-##1.2 usage
+## 1.2 usage
 
 Download the installation free program appemit (excluding plug-ins less than 6m), run AppEmit.exe Just. It is set to start up automatically and avoid being shut down by antivirus software.
 
@@ -53,7 +53,7 @@ Direct operation, if the machine is already running AppEmit.exe , no processing.
 
 If there are already procedures on this machine AppEmit.exe Run, right-click to run in administrator mode, then close the old process and start a new process.
 
-##1.3 technical realization
+## 1.3 technical realization
 
 Web socket adopts open source control [hpsocket](https://github.com/ldcsaa/HP-Socket), support SSL.
 
@@ -63,7 +63,7 @@ The DLL file opens the C interface, on which the control can be redeveloped.
 
  HPSocket4C-SSL_ U.dll
 
-###1.3.1 implementation process
+### 1.3.1 implementation process
 
 In the JS of HTML, websocket is implemented to call the appemit call.
 
@@ -74,7 +74,7 @@ ws.onmessage = function (evt) {};
 ws.onclose = function (evt) {};
 ```
 
-###1.3.2 main steps, connection authorization, sending command
+### 1.3.2 main steps, connection authorization, sending command
 
 1. After the web page is registered, it is set with CID and clientkey to obtain connection authorization. Or test with temporary account CID = 10000-0.
 
@@ -99,7 +99,7 @@ EmitReq_ PaOP(init_ AE);
 
 `startAppEmit('{"emit":"hardWare","Obj":"pc"}') `
 
-### 1.3.3 demo
+###  1.3.3 demo
 
 In demo, it is mainly an example of HTML,
 
@@ -107,14 +107,14 @@ Including obtaining PC information to realize the communication index.html
 
 And flash player AppEmbed.html
 
-##1.4 contact
+## 1.4 contact
 
 Mail: appemit(at)appemit.com
 
 
-#2. Plug in scenario
+# 2. Plug in scenario
 
-##2.1 obtaining client information
+## 2.1 obtaining client information
 
 Use the browser to open the index.html 。 After authorized connection, send the command to get PC information.
 
@@ -155,9 +155,9 @@ Two methods, mainly four forms of implementation scenarios
 ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
  
- ###2.3.1 ActiveX form
+ ### 2.3.1 ActiveX form
 
-####2.3.1.1 open network flash file
+#### 2.3.1.1 open network flash file
 
 Open the AppEmbed.html , after the connection is authorized, send the command to open the network flash file using ActiveX ("apptype": 0). The parameters are as follows.
 
@@ -177,7 +177,7 @@ Flashvars can be set in SRC
 
 Refresh to turn off flash
 
-####2.3.1.2 open local flash file
+#### 2.3.1.2 open local flash file
 
 Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmldemo / test1. SWF'.
 
@@ -187,7 +187,7 @@ Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmld
 
 ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
 
-###2.3.2 npapi embedded Web
+### 2.3.2 npapi embedded Web
 
 The current plug-in does not support the media features of HTML5. If necessary, you can use the node or electronic plug-in.
 
@@ -201,7 +201,7 @@ After connecting authorization, send the command "apptype": 1.
 
 ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
 
-###2.3.3 npapi network flash file
+### 2.3.3 npapi network flash file
 
 Open the network flash file by using the plug-in npswf32.dll of the appemit program.
 
@@ -213,7 +213,7 @@ After connecting authorization, send the command "apptype": 2.
 
 ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
 
-###2.3.4 npapi network media file
+### 2.3.4 npapi network media file
 
 Use the plug-in npswf32.dll of the appemit program to open network media files, including flv, MP4, etc.
 
@@ -225,7 +225,7 @@ After connecting authorization, send the command "apptype": 3.
 
 ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
 
-##2.4 close
+## 2.4 close
 
 1. Refresh to turn off flash
 
@@ -233,9 +233,9 @@ After connecting authorization, send the command "apptype": 3.
 
 3. `{"emit":"closeAll","Obj":"flash"}`
 
-## 2.5 Web
+##  2.5 Web
 
-###2.4.1 IE kernel
+### 2.4.1 IE kernel
 
 "Apptype": 1 use IE kernel to open web page
 
@@ -252,7 +252,7 @@ The priority of the three factors decreased in turn.
   ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
   
 
-###2.4.2 WebKit kernel
+### 2.4.2 WebKit kernel
 
 "Apptype": 2 use WebKit kernel to open web page
 
@@ -268,9 +268,9 @@ The priority of the three factors decreased in turn.
 
 Please pay attention.
 
-#3. Parameters
+# 3. Parameters
 
-##3.1 connection
+## 3.1 connection
 
 ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1
 
@@ -296,7 +296,7 @@ Flag optional. Default 0, not debug.
 
 1 commissioning
 
-##3.2 initialization data
+## 3.2 initialization data
 
 ```
 var init_ AE={
@@ -318,9 +318,9 @@ Wsurl wsurl default can be found in config.in modify
 User sid is not required. The only way to talk normally. Production environment, the same setting here.
 
 Group GID array unnecessary a SID can have different GIDS
-##3.3 command
+## 3.3 command
 
-###3.3.1 hardware information
+### 3.3.1 hardware information
 
 `{"emit":"hardWare","Obj":"pc"}`
 
@@ -330,7 +330,7 @@ Emit hardware is required. Communication request.
 
 Obj PC required. Target object.
 
-###3.3.2 call
+### 3.3.2 call
 
 `{"emit":"msg","toSids":["2"],"toGids":[1,2],"data":"hi, I'am Tom."}`
 
@@ -344,7 +344,7 @@ Togids is not required. It can be an array.
 
 Data is required.
 
-###3.3.3 open event
+### 3.3.3 open event
 
 The parameter format is as follows
 
@@ -364,7 +364,7 @@ CAD follow up support
 
 par0
 
-####3.3.3.1 "apptype": 0 open flash
+#### 3.3.3.1 "apptype": 0 open flash
 
 ```
 {"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
@@ -449,7 +449,7 @@ POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
 1 by default, the location recognized by the code is used. For different browsers, the location of automatic identification needs to be optimized
 
 
-####3.3.3.2 "apptype": 1 open flash
+#### 3.3.3.2 "apptype": 1 open flash
 
 ```
 {"emit":"open","Obj":"flash","AppType":1,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp14/yzg/20140328/bombit7/zx_ game7.htm","pos":1}
@@ -479,7 +479,7 @@ POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
 
 1 by default, the location recognized by the code is used. For different browsers, the location of automatic identification needs to be optimized
 
-####3.3.3.3 "apptype": 2 open flash
+#### 3.3.3.3 "apptype": 2 open flash
 
 ```
 {"emit":"open","Obj":"flash","AppType":2,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp18/liuxy/20160130/17801/ game.swf ","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
@@ -517,7 +517,7 @@ Quality is optional. Default high refers to the official flash default parameter
 
 Wmode is optional. Default transparent refers to the official flash default parameters.
 
-####3.3.3.4 "apptype": 3 open flash
+#### 3.3.3.4 "apptype": 3 open flash
 
 ```
 {"emit":"open","Obj":"flash","AppType":3,"src":" https://media.html5media.info/video.mp4 ","pos":1,"par0":{"autoPlay":1,"loop":1}}
@@ -654,22 +654,22 @@ Crossdomain bool default true
 Ture
 false
 	
-###3.3.4 close
+### 3.3.4 close
 
-####3.3.4.1 close the app corresponding to Sid
+#### 3.3.4.1 close the app corresponding to Sid
 `{"emit":"close","Obj":"flash"}`
 Description of name setting Meaning
 Exit close required. Close the control app communication event request.
 Obj flash required.
 
-####3.3.4.2 close all app of CID
+#### 3.3.4.2 close all app of CID
 
 `{"emit":"closeAll","Obj":"flash"}`
 Description of name setting Meaning
 Exit close required. Close all control app communication event requests. Close all control apps running under CID
 Obj flash required.
 
-##3.4 obtaining parameters
+## 3.4 obtaining parameters
 
 {"emit":"getPar","Obj":"clientAuth"}
 Description of name setting Meaning
@@ -678,7 +678,7 @@ Whether obj clientauth is authorized
 1 authorization
 0 none
 
-##3.5 setting parameters
+## 3.5 setting parameters
 
 {"emit":"setPar","Obj":"flash","topMost":true}
 Description of name setting Meaning
@@ -688,29 +688,29 @@ Topmost is required.
 True top
 False cancel top
 
-##3.6 appemit operation
+## 3.6 appemit operation
 
-###3.6.1 error message
+### 3.6.1 error message
 
 {"emit":" lasterr "}
 Description of name setting Meaning
 Emit laster is required. Get the most recent error request. "
 
-###3.6.2 restart
+### 3.6.2 restart
 
 {"emit":"restart","Obj":"AppEmit"}
 Description of name setting Meaning
 Exit restart required. Appemit restart request. The client needs to be reconnected after restart.
 Obj appemit required.
 
-###3.6.3 update
+### 3.6.3 update
 
 {"emit":"update","Obj":"AppEmit"}
 Description of name setting Meaning
 Emit update required. Ask appemit whether to update the program request. Forced update by default. If config.ini If AutoUpdate = 0 is set in it, you will be asked to update.
 Obj appemit required.
 
-###3.6.4 about
+### 3.6.4 about
 
 {"emit":"about","Obj":"AppEmit"}
 Description of name setting Meaning
@@ -718,14 +718,14 @@ Emit about is required. Get about the request. Back
 {"data":{"appName":"AppEmit","url":" http://www.appemit.com/ ","verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"}," }
 Obj appemit required.
 
-###3.6.5 version information
+### 3.6.5 version information
 
 {"emit":"version","Obj":"AppEmit"}
 Description of name setting Meaning
 Emit version required. Get version request. 	{"data":{"verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"},"
 Obj appemit required.
 
-#4. Questions
+# 4. Questions
 
 1. Support Linux Mac?
 It is not supported in the current version and  used on Windows system.
