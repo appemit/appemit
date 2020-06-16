@@ -33,7 +33,7 @@ Email	appemit(at)appemit.com
 
 [github下载地址 ](https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
 
-[国内使用内容分发下载地址，更新有滞后 ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+[国内使用内容分发下载地址，更新有滞后 ](https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
  
 ## 1.1	使用条件
 

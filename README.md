@@ -33,7 +33,7 @@ Github[https://github.com/appemit/appemit ](https://github.com/appemit/appemit)
 
 Email appemit(at) appemit.com
 
-[GitHub download address ](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
+[GitHub download address ](https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
 
 [content distribution download address, update lag ](https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
 
