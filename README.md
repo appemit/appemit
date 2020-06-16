@@ -27,15 +27,15 @@ Appemit is a kind of extensible lightweight middleware that can communicate betw
 
 Program name AppEmit.exe
 
-Website[ http://www.appemit.com ] http://www.appemit.com )
+Website[http://www.appemit.com ](http://www.appemit.com)
 
-Github[ https://github.com/appemit/appemit ] https://github.com/appemit/appemit )
+Github[https://github.com/appemit/appemit ](https://github.com/appemit/appemit)
 
 Email appemit(at) appemit.com
 
-[GitHub download address:]（ https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip )
+[GitHub download address:](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
 
-[domestic content distribution download address, update lag:]（ https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip )
+[domestic content distribution download address, update lag:](https://cdn.jsdelivr.net/gh/appemit/appemit/AppEmit.zip)
 
 ##1.1 service conditions
 
@@ -45,7 +45,7 @@ Windows system, support XP or above.
 
 Download the installation free program appemit (excluding plug-ins less than 6m), run AppEmit.exe Just. It is set to start up automatically and avoid being shut down by antivirus software.
 
-! [contents]（ https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png )
+! [contents](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
 
 Only one can be opened at the same time AppEmit.exe Process.
 
@@ -55,7 +55,7 @@ If there are already procedures on this machine AppEmit.exe Run, right-click to 
 
 ##1.3 technical realization
 
-Web socket adopts open source control [hpsocket]（ https://github.com/ldcsaa/HP-Socket ）, support SSL.
+Web socket adopts open source control [hpsocket](https://github.com/ldcsaa/HP-Socket ）, support SSL.
 
 The DLL file opens the C interface, on which the control can be redeveloped.
 
@@ -140,7 +140,7 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 
 ` ` ` `
 
-! [PC information]（ https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png )
+! [PC information](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
 2.2 communication between different clients
 
@@ -152,7 +152,7 @@ After connecting to the approval authority, send the command under sid = 1.
 
 In the full set of customer CID, one-to-one or one to many calls can be made through a unique Sid conversation.
 
-! [1 to 2 and 3 calls]（ https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png )
+! [1 to 2 and 3 calls](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.2.png)
 
 The picture shows 1-to-2 and 3 calls.
 
@@ -168,7 +168,7 @@ Two methods, mainly four forms of implementation scenarios
 
 2. Use the plug-in plugins / npswf32.dll provided with the appemit program
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png )
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
  
  ###2.3.1 ActiveX form
@@ -192,7 +192,7 @@ The path is / maybe\\
 
 Flashvars can be set in SRC
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.1.png )
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.1.png)
 
 Refresh to turn off flash
 
@@ -206,7 +206,7 @@ Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmld
 
 ` ` ` `
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png )
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
 
 ###2.3.2 npapi embedded Web
 
@@ -222,7 +222,7 @@ After connecting authorization, send the command "apptype": 1.
 
 ` ` ` `
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png )
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
 
 ###2.3.3 npapi network flash file
 
@@ -236,7 +236,7 @@ After connecting authorization, send the command "apptype": 2.
 
 ` ` ` `
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png )
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
 
 ###2.3.4 npapi network media file
 
@@ -250,7 +250,7 @@ After connecting authorization, send the command "apptype": 3.
 
 ` ` ` `
 
-![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png )
+![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
 
 ##2.4 close
 
