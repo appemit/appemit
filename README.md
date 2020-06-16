@@ -554,7 +554,8 @@ https://player.alicdn.com/aliplayer/setting/setting.html
 Loop is optional. Default 1
 
 3.3.3.5
-“[emit]” http://www.appemit.com/ "..." (...) master, "(...) null 'null nosripterr“
+{"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null,"noScriptErr":true,"UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true}}
+
 Representation, description
 It is necessary to open
 Obj web required.
@@ -568,7 +569,7 @@ yes
 htmlStr-Html
 Httpserver \ u starturl task executor
 URL http://www.appemit.com/ Donors
-/demo htmldemo/ html.html http://www.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.xxdoc.comwww.x
+/demo/html demo/html.html  
 Paragraph 0
 Cephalic type
 noScript
@@ -645,7 +646,7 @@ Par required. Priority descending in sequence: one of the three parameters must 
 Htmlstr HTML code
 HttpServer_ Starturl opens the local HTML file path as a server, which can be absolute or relative. /Is the separator.
 URL	 http://www.appemit.com  perhaps
-/demo/htmlDemo/ html.html	 Support web address or local HTML file path.
+/demo/html Demo/ html.html	 Support web address or local HTML file path.
 Par0 optional.
 Header
 Useragent agent

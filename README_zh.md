@@ -389,7 +389,7 @@ par		必需。优先级别依次下降	三个参数必须有一个不是空。
 htmlStr		Html代码	
 HttpServer_startUrl		以服务器形式打开本地html文件路径，可以是绝对或者相对路径。/为分隔符。	
 URL	http://www.appemit.com 或者
-/demo/htmlDemo/html.html	支持网页地址或者本地html文件路径。	
+/demo/html Demo/html.html	支持网页地址或者本地html文件路径。	
 Par0		可选。	
 header		头部	
 noScriptErr	bool	默认true
@@ -467,7 +467,7 @@ par		必需。优先级别依次下降	三个参数必须有一个不是空。
 htmlStr		Html代码	
 HttpServer_startUrl		以服务器形式打开本地html文件路径，可以是绝对或者相对路径。/为分隔符。	
 URL	http://www.appemit.com 或者
-/demo/htmlDemo/html.html	支持网页地址或者本地html文件路径。	
+/demo/html Demo/html.html	支持网页地址或者本地html文件路径。	
 Par0		可选。	
 header		头部	
 userAgent		代理	
