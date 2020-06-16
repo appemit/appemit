@@ -55,7 +55,7 @@ If there are already procedures on this machine AppEmit.exe Run, right-click to 
 
 ##1.3 technical realization
 
-Web socket adopts open source control [hpsocket](https://github.com/ldcsaa/HP-Socket ）, support SSL.
+Web socket adopts open source control [hpsocket](https://github.com/ldcsaa/HP-Socket), support SSL.
 
 The DLL file opens the C interface, on which the control can be redeveloped.
 
@@ -67,17 +67,12 @@ The DLL file opens the C interface, on which the control can be redeveloped.
 
 In the JS of HTML, websocket is implemented to call the appemit call.
 
-` ` ` `
-
+```
 ws = new WebSocket(wsUrl);
-
 ws.onopen = function (evt) {};
-
 ws.onmessage = function (evt) {};
-
 ws.onclose = function (evt) {};
-
-` ` ` `
+```
 
 ###1.3.2 main steps, connection authorization, sending command
 
@@ -89,25 +84,16 @@ initAppEmit("ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1 ""
 
 3. Set the clientkey authorization (clientkey is private, and JS needs to be encrypted after publishing) initialization data and authorization, etc
 
-` ` ` `
-
+```
 var init_ AE={
-
 "clientKey":"temp-0000000000",
-
 "browser":ThisBrowser,
-
 "wsUrl":wsUrl,
-
 // "sid":"1",
-
 "gid":"[1,2]",
-
 }
-
 EmitReq_ PaOP(init_ AE);
-
-` ` ` `
+```
 
 4. Send command
 
@@ -132,13 +118,11 @@ Mail: appemit@appemit.com
 
 Use the browser to open the index.html 。 After authorized connection, send the command to get PC information.
 
-` ` ` `
 
+```
 initAppEmit("ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1 ""
-
 startAppEmit('{"emit":"hardWare","Obj":"pc"}')
-
-` ` ` `
+```
 
 ![PC information](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
 
@@ -173,16 +157,13 @@ Two methods, mainly four forms of implementation scenarios
  
  ###2.3.1 ActiveX form
 
-
 ####2.3.1.1 open network flash file
 
 Open the AppEmbed.html , after the connection is authorized, send the command to open the network flash file using ActiveX ("apptype": 0). The parameters are as follows.
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
-
-` ` ` `
+```
 
 matters needing attention:
 
@@ -200,11 +181,9 @@ Refresh to turn off flash
 
 Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmldemo / test1. SWF'.
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
-
-` ` ` `
+```
 
 ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
 
@@ -216,11 +195,9 @@ Using the plug-in npswf32.dll of the appemit program, you can open the webpage w
 
 After connecting authorization, send the command "apptype": 1.
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":1,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp14/yzg/20140328/bombit7/zx_ game7.htm","pos":1}
-
-` ` ` `
+```
 
 ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
 
@@ -230,11 +207,9 @@ Open the network flash file by using the plug-in npswf32.dll of the appemit prog
 
 After connecting authorization, send the command "apptype": 2.
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":2,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp18/liuxy/20160130/17801/ game.swf ","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
-
-` ` ` `
+```
 
 ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
 
@@ -244,11 +219,9 @@ Use the plug-in npswf32.dll of the appemit program to open network media files, 
 
 After connecting authorization, send the command "apptype": 3.
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":3,"src":" https://media.html5media.info/video.mp4 ","pos":1,"par0":{"autoPlay":1,"loop":1}}
-
-` ` ` `
+```
 
 ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
 
@@ -319,24 +292,15 @@ Flag optional. Default 0, not debug.
 
 ##3.2 initialization data
 
-` ` ` `
-
+```
 var init_ AE={
-
 "clientKey":"temp-0000000000",
-
 "browser":ThisBrowser,
-
 "wsUrl":wsUrl,
-
 "sid":"123456",
-
 "gid":"[1,2]"
-
 }
-
-` ` ` `
-
+```
 Description of name setting Meaning
 
 Client clientkey temp 0000000000 is required, corresponding to CID. Confidentiality, JS should confuse encryption.
@@ -396,11 +360,9 @@ par0
 
 ####3.3.3.1 "apptype": 0 open flash
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
-
-` ` ` `
+```
 
 Description of name setting Meaning
 
@@ -483,11 +445,9 @@ POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
 
 ####3.3.3.2 "apptype": 1 open flash
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":1,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp14/yzg/20140328/bombit7/zx_ game7.htm","pos":1}
-
-` ` ` `
+```
 
 Description of name setting Meaning
 
@@ -515,11 +475,9 @@ POS {"left": 372, "top": 203, "width": 606, "height": 406} required.
 
 ####3.3.3.3 "apptype": 2 open flash
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":2,"src":" http://sxiao.4399.com/4399swf/upload_ swf/ftp18/liuxy/20160130/17801/ game.swf ","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
-
-` ` ` `
+```
 
 Description of name setting Meaning
 
@@ -555,11 +513,9 @@ Wmode is optional. Default transparent refers to the official flash default para
 
 ####3.3.3.4 "apptype": 3 open flash
 
-` ` ` `
-
+```
 {"emit":"open","Obj":"flash","AppType":3,"src":" https://media.html5media.info/video.mp4 ","pos":1,"par0":{"autoPlay":1,"loop":1}}
-
-` ` ` `
+```
 
 Description of name setting Meaning
 
@@ -692,24 +648,31 @@ Ture
 false
 	
 ###3.3.4 close
+
 ####3.3.4.1 close the app corresponding to Sid
 `{"emit":"close","Obj":"flash"}`
 Description of name setting Meaning
 Exit close required. Close the control app communication event request.
 Obj flash required.
+
 ####3.3.4.2 close all app of CID
+
 `{"emit":"closeAll","Obj":"flash"}`
 Description of name setting Meaning
 Exit close required. Close all control app communication event requests. Close all control apps running under CID
 Obj flash required.
+
 ##3.4 obtaining parameters
+
 {"emit":"getPar","Obj":"clientAuth"}
 Description of name setting Meaning
 Emit getPar is required. Get parameter request.
 Whether obj clientauth is authorized
 1 authorization
 0 none
+
 ##3.5 setting parameters
+
 {"emit":"setPar","Obj":"flash","topMost":true}
 Description of name setting Meaning
 Emit getpar required. Get parameter request.
@@ -717,33 +680,46 @@ Obj flash required.
 Topmost is required.
 True top
 False cancel top
+
 ##3.6 appemit operation
+
 ###3.6.1 error message
+
 {"emit":" lasterr "}
 Description of name setting Meaning
 Emit laster is required. Get the most recent error request. "
+
 ###3.6.2 restart
+
 {"emit":"restart","Obj":"AppEmit"}
 Description of name setting Meaning
 Exit restart required. Appemit restart request. The client needs to be reconnected after restart.
 Obj appemit required.
+
 ###3.6.3 update
+
 {"emit":"update","Obj":"AppEmit"}
 Description of name setting Meaning
 Emit update required. Ask appemit whether to update the program request. Forced update by default. If config.ini If AutoUpdate = 0 is set in it, you will be asked to update.
 Obj appemit required.
+
 ###3.6.4 about
+
 {"emit":"about","Obj":"AppEmit"}
 Description of name setting Meaning
 Emit about is required. Get about the request. Back
 {"data":{"appName":"AppEmit","url":" http://www.appemit.com/ ","verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"}," }
 Obj appemit required.
+
 ###3.6.5 version information
+
 {"emit":"version","Obj":"AppEmit"}
 Description of name setting Meaning
 Emit version required. Get version request. 	{"data":{"verDesc":"\u516C\u5171\u514D\u8D39\u7248(Public free Version)","verType":0,"version":"0.3.5"},"
 Obj appemit required.
+
 #4. Questions
+
 1. Support Linux Mac?
 It is not supported in the current version and  used on Windows system.
 2. What are the limitations of the free version?
