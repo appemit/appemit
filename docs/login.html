@@ -26,10 +26,10 @@
 </div>
 
 </body>
-  <script type="text/javascript" src="demo/AppEmit_1.0.js"></script>
+  <script type="text/javascript" src="demo/AppEmit_1.0_min.js"></script>  
 <script>
  
- 
+  
   var init_mark=  initAppEmit("ws://localhost:80/appemit?cid=00000-1");
  
   if  (init_mark)  {
@@ -38,16 +38,8 @@
 	                           },800);
  
 		}
-  alert(1)
-window.onbeforeunload = function(e) {
-    //add save file 
  
-      //  EmitReq_PaOP({ "emit": "close"}, Obj_App);
- alert(1)
-      if (ws) {
-        ws.close();
-    }
-
-}	
+ 
+   
 </script>
 </html>
