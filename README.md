@@ -76,11 +76,11 @@ ws.onclose = function (evt) {};
 
 ### 1.3.2 main steps, connection authorization, sending command
 
-1. After the web page is registered, it is set with CID and clientkey to obtain connection authorization. Or test with temporary account CID = 10000-0.
+1. After the web page is registered, it is set with CID and clientkey to obtain connection authorization. Or test with temporary account CID = 00000-1.
 
 2. Connect to the appemit service
 
-initAppEmit("ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1 ""
+initAppEmit("ws:// localhost:80/appemit?cid=00000-1&sid=1&flag=1 ""
 
 3. Set the clientkey authorization (clientkey is private, and JS needs to be encrypted after publishing) initialization data and authorization, etc
 
@@ -120,7 +120,7 @@ Use the browser to open the index.html 。 After authorized connection, send the
 
 
 ```
-initAppEmit("ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1 ""
+initAppEmit("ws:// localhost:80/appemit?cid=00000-1&sid=1&flag=1 ""
 startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 ```
 
@@ -272,7 +272,7 @@ Please pay attention.
 
 ## 3.1 connection
 
-ws:// localhost:80/appemit?cid=10000-0&sid=1&flag=1
+ws:// localhost:80/appemit?cid=00000-1&sid=1&flag=1
 
 Description of name setting Meaning
 
@@ -288,7 +288,7 @@ Port 80 can be set in config.in modify
 
 Path append required
 
-Para CID required. 10000-0 is a free account. Complete.
+Para CID required. 00000-1 is a free account. Complete.
 
 Sid optional. The unique session or user ID test is best implemented in JS
 

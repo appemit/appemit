@@ -72,9 +72,9 @@ ws.onclose = function(evt) {};
 ```
 ### 1.3.2	主要步骤，连接授权，发送命令
 
-1.	网页注册后获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=10000-0测试。
+1.	网页注册后获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=00000-1测试。
 2.	连接Appemit服务
-initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
+initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")
 3.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
 ```
 var init_AE={
@@ -107,7 +107,7 @@ var init_AE={
 使用浏览器打开demo下的index.html。授权连接后，发送获取PC信息命令。
 
 ```
-initAppEmit("ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1")
+initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")
 startAppEmit('{"emit":"hardWare","Obj":"pc"}') 
 ```
 ![PC信息](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
@@ -210,7 +210,7 @@ flashVars可以设置在src中
 
 ## 3.1	连接
 
-ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1
+ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1
 
  名称 设置 含义 说明
  协议	  ws	  SSL为wss	
@@ -219,7 +219,7 @@ ws://localhost:80/appemit?cid=10000-0&sid=1&flag=1
 Port	80	默认	可以在config.in修改
 	443	ssl默认	可以在config.in修改
 path	appemit	必需	
-para	cid	必需。10000-0为免费账号。	全集。
+para	cid	必需。00000-1为免费账号。	全集。
 	sid	可选。唯一session或者用户名ID	测试最好在js中实现
 	flag	可选。默认0，非调试。
 1调试	
