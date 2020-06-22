@@ -1,0 +1,45 @@
+<!DOCTYPE html>  <!--  manifest="/websocket.appcache"-->
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title> AppEmit 登录</title>  
+	   <meta name="description" content=" AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件">
+	<meta name="keywords" content=" Embed App,游戏,办公,websocket,SSL,plugins,flash,mp4,flv,swf, m3u8,rtmp,mp3,aac">
+
+    <script type="text/javascript">
+    </script>
+ 
+</head>
+<body>
+
+
+<div class="container">
+       <div >  
+		<div style="font-size:10px"> <a href="http://www.appemit.com" target="_blank">AppEmit Home</a>  </div>
+ 
+		   </div>
+             <div style="margin-top:10px;text-align:center">
+				<textarea readonly id="AppEmbed"  style="border:none;min-width:30px;min-height:20px;width:850px;height:560px" ></textarea>
+		</div>
+ 
+</div>
+
+</body>
+  <script type="text/javascript" src="../AppEmit_1.0_min.js"></script>
+<script>
+ 
+ 
+  var init_mark=  initAppEmit("ws://localhost:80/appemit?cid=00000-1");
+ 
+  if  (init_mark)  {
+ 
+      setTimeout(  function(){ startAppEmit(  {"emit":"login" ,"Obj":"web" ,"pos":1}) 
+	                           },800);
+ 
+		}
+ 
+ 
+	   
+</script>
+</html>
