@@ -22,7 +22,7 @@
   <div id="main">
 
     <nav><ul>
-	<img src="https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/logo.png"  alt="logo" />
+	<a href="http://www.appemit.com/login.html"  target="_blank">Login</a>
       {% for node in site.posts reversed %}
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
         <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
