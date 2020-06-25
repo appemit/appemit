@@ -27,11 +27,11 @@
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
         <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
       {% endfor %}
- 	    &nbsp;&nbsp;&nbsp;<a  style=" font-size: 14; color:white; " href="http://www.appemit.com/login.html"  target="_blank">Login</a> 
+ 	    &nbsp;&nbsp;&nbsp;<a  style="font-size:120%; color:white; " href="http://www.appemit.com/login.html"  target="_blank"><img border="0" src="https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/login.png" /></a> 
     </ul>
 
 	</nav>
-
+ 
 
     {% for page in site.posts reversed %}
       {% capture id %}{{ page.id | remove:'/' | downcase }}{% endcapture %}
