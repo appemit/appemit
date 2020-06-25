@@ -20,8 +20,9 @@
 
 	
   <div id="main">
-<img src="https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/logo.png"  alt="logo" />
+
     <nav><ul>
+	<img src="https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/logo.png"  alt="logo" />
       {% for node in site.posts reversed %}
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
         <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
