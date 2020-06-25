@@ -22,13 +22,15 @@
   <div id="main">
 
     <nav><ul>
-	<a href="http://www.appemit.com/login.html"  target="_blank">Login</a>
+
       {% for node in site.posts reversed %}
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
         <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
       {% endfor %}
  
-    </ul></nav>
+    </ul>
+		<div><a href="http://www.appemit.com/login.html"  target="_blank">Login</a></div>
+	</nav>
 
 
     {% for page in site.posts reversed %}
