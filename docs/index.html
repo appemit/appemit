@@ -17,9 +17,10 @@
  
 </head>
 <body>
+
 	
   <div id="main">
-
+<img src="https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/logo.png"  alt="logo" />
     <nav><ul>
       {% for node in site.posts reversed %}
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
