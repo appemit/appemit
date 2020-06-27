@@ -159,10 +159,10 @@ Two methods, mainly four forms of implementation scenarios
 
 #### 2.3.1.1 open network flash file
 
-Open the AppEmbed.html , after the connection is authorized, send the command to open the network flash file using ActiveX ("apptype": 0). The parameters are as follows.
+Open the AppEmbed.html , after the connection is authorized, send the command to open the network flash file using ActiveX ("AppType":4). The parameters are as follows.
 
 ```
-{"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+{"emit":"open","Obj":"flash","AppType":4,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
 ```
 
 matters needing attention:
@@ -182,7 +182,7 @@ Refresh to turn off flash
 Can be absolute or relative path, relative to AppEmit.exe Path to: 'demo / htmldemo / test1. SWF'.
 
 ```
-{"emit":"open","Obj":"flash","AppType":0,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+{"emit":"open","Obj":"flash","AppType":4,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
 ```
 
 ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
@@ -364,10 +364,10 @@ CAD follow up support
 
 par0
 
-#### 3.3.3.1 "apptype": 0 open flash
+#### 3.3.3.1 "AppType":4 open flash
 
 ```
-{"emit":"open","Obj":"flash","AppType":0,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
+{"emit":"open","Obj":"flash","AppType":4,"src":" http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf ","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
 ```
 
 Description of name setting Meaning
