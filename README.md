@@ -269,7 +269,7 @@ The priority of the three factors decreased in turn.
 Please pay attention.
 
 # 3. Parameters
-
+(please refer to the latest PDF file description in the download documents. )
 ## 3.1 connection
 
 ws:// localhost:80/appemit?cid=00000-1&sid=1&flag=1
