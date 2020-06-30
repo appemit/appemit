@@ -1,8 +1,8 @@
-AppEmit  v0.3.8 
+AppEmit  v0.6.0
 
 # 1	概述
 
-AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5国际标准的Web Socket进行通话，默认为异步， JSON格式传递参数。
+AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的易扩展的轻量级中间件。主要采用了HTML5标准的Web Socket进行通话，默认为异步， JSON格式传递参数。
 	
 ### 主要实现功能：
 1)	在浏览器播放含有flash的网页或Flash文件，包括swf交互动画、flv影视等
@@ -11,14 +11,15 @@ AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的�
 
 3)	开发本地硬件DLL驱动模块的封装插件，实现在网页中操作控制本地的读卡器、打印机、扫描仪、高拍仪、U盾等各种硬件设备
 
-4)	各个应用程序之间通信
+4)	各个应用程序之间通信，比如聊天
 
-5)	在Chrome里嵌入IE内核网页
+5)	在Chrome里嵌入IE内核网页，可以不修改原有的ActiveX读取html，同时支持开源内核wke和blink
 
 ### 解决问题
-1)	国际市场份额68%以上的chrome浏览器（数据来源Netmarketshare；国内25%以上）在2020年12月后不再支持flash，而微软的edge也不支持ActiveX。
 
-2)	客户习惯使用浏览器来处理各种业务。
+1)	国际市场份额68%以上的chrome浏览器（数据来源Netmarketshare；国内25%以上）在2020年12月后不再支持flash(NPAPI)，而微软的edge也不支持ActiveX。
+
+2)	客户习惯使用浏览器来处理各种业务,能调用IE内核。
 
 3)	游戏商、银行、医院、电力、硬件等企业客户使用dll、ActiveX、flash等文件的场景需要。
 
@@ -34,14 +35,23 @@ Email	appemit(at)appemit.com
 [github下载地址 ](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
 
 [国内使用内容分发下载地址，更新有滞后 ](https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
- 
+
+
+### Github 的目录说明
+
+├ dist           下载此文件夹的zip压缩包即可。已经包含了NPSWF和帮助文档demo
+├ docs         略过
+├ plugins      含有更多的插件，使用时自动安装，如果局域网使用请自行下载。
+├ README.md 
+└ README_zh.md
+
 ## 1.1	使用条件
 
 Windows系统，支持XP以上。
 
 ## 1.2	用法
 
-下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe即可。设置了开机自启动，应避免被杀毒软件关闭。
+下载免安装程序AppEmit（不含插件小于6M），运行AppEmit.exe一次即可。设置了开机自启动，应避免被杀毒软件关闭。
 
 ![目录](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1.2.png)
 
@@ -72,10 +82,11 @@ ws.onclose = function(evt) {};
 ```
 ### 1.3.2	主要步骤，连接授权，发送命令
 
-1.	网页注册后获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=00000-1测试。
-2.	连接Appemit服务
+1.	下载AppEmit文件压缩包，运行exe文件一次，打开demo文件夹里面的html文件或者主页的demo连接
+2. 网页注册获得设置cid，clientKey，获得连接授权。或者使用临时账户cid=00000-1测试。
+3.	后台初始化Appemit连接服务
 initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")
-3.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
+4.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
 ```
 var init_AE={
 		 "clientKey":"temp-0000000000",  
@@ -90,18 +101,27 @@ var init_AE={
 4.	发送命令
 
 `startAppEmit('{"emit":"hardWare","Obj":"pc"}') `
+5.	关闭命令，如果打开了App，自动关闭
+
+`{"emit":"close","Obj":"flash"}  `
 
 ### 1.3.3	demo
 在demo下主要是html的举例，
 	包括获取pc信息，实现通话的index.html
 	以及播放flash的AppEmbed.html
+或者在线测试
+[AppEmbed App](http://www.appemit.com/demo/AppEmbed.html)
+
+[Demo](http://www.appemit.com/demo/index.html)
 
 ## 1.4	联系
 邮件： appemit(at)appemit.com
 
 
 # 2	插件场景
-(请以下载文档中最新的PDF文件说明为准。)
+
+ (请以下载文档中最新的PDF文件说明为准。)
+
 ## 2.1	获取客户端信息
 
 使用浏览器打开demo下的index.html。授权连接后，发送获取PC信息命令。
@@ -130,10 +150,12 @@ startAppEmit('{"emit":"hardWare","Obj":"pc"}')
 1、	使用客户端本地安装的Flash Player ActiveX控件，要是客户端没有，需要自行下载。下载地址：http://www.adobe.com/go/getflashplayer
 2、	使用Appemit程序自带的插件plugins/NPSWF32.dll
  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.1.png)
+ 
 ### 2.3.1	ActiveX形式
 
 #### 2.3.1.1	打开网络flash文件
-打开demo下的AppEmbed.html,连接授权后，发送使用ActiveX（"AppType":4）打开网络flash文件命令，参数如下。
+
+打开demo下的AppEmbed.html,连接授权后，发送使用ActiveX（"AppType":4, 为负数则浮动窗口，后续相同）打开网络flash文件命令，参数如下。
 ```
 {"emit":"open","Obj":"flash","AppType":4,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
 ```
@@ -153,6 +175,7 @@ flashVars可以设置在src中
 {"emit":"open","Obj":"flash","AppType":4,"src":"demo/htmlDemo/test1.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}
  ```
  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.1.2.png)
+ 
 ### 2.3.2	NPAPI-嵌入web
 
 能打开常用网页，目前的插件不支持html5的媒体特性。如有需要，可以使用node或者electron插件。
@@ -162,6 +185,7 @@ flashVars可以设置在src中
 {"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1}
  ```
   ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.2.png)
+  
 ### 2.3.3	NPAPI-网络flash文件
 
 使用Appemit程序自带的插件NPSWF32.dll， 打开网络flash文件。
@@ -170,6 +194,7 @@ flashVars可以设置在src中
 {"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent"}}
  ```
   ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.3.png)
+  
 ### 2.3.4	NPAPI-网络媒体文件
 
 使用Appemit程序自带的插件NPSWF32.dll， 打开网络媒体文件，包括flv,mp4等。
@@ -178,6 +203,7 @@ flashVars可以设置在src中
 {"emit":"open","Obj":"flash","AppType":3,"src":"https://media.html5media.info/video.mp4","pos":1,"par0":{"autoPlay":1,"loop":1}}
 ```
   ![image](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/2.3.4.png)
+  
 ## 2.4	关闭
 
 1.	刷新即可关闭flash
@@ -204,7 +230,14 @@ flashVars可以设置在src中
 设置URL打开网页。 三者优先级依次下降。
 
 
-请关注。
+### 2.4.3	blink内核
+"AppType":3使用开源blink内核(webkit加强版)打开网页
+{"emit":"open","Obj":"web","AppType":3,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
+
+设置htmlStr可以直接打开html源码。
+设置HttpServer_startUrl，可以打开本地的html文件。
+设置URL打开网页。 三者优先级依次下降。
+
 
 # 3	参数
 (请以下载文档中最新的PDF文件说明为准。)
@@ -390,68 +423,8 @@ htmlStr		Html代码
 HttpServer_startUrl		以服务器形式打开本地html文件路径，可以是绝对或者相对路径。/为分隔符。	
 URL	http://www.appemit.com 或者
 /demo/html Demo/html.html	支持网页地址或者本地html文件路径。	
-Par0		可选。	
-header		头部	
-noScriptErr	bool	默认true
-Ture
-false	
-UIFLAG		_UIFLAG_DIALOG=@0x1/*_UIFLAG_DIALOG*/
-_UIFLAG_DISABLE_HELP_MENU=@0x2/*_UIFLAG_DISABLE_HELP_MENU*/
-_UIFLAG_NO3DBORDER=@0x4/*_UIFLAG_NO3DBORDER*/
-_UIFLAG_SCROLL_NO=@0x8/*_UIFLAG_SCROLL_NO*/
-_UIFLAG_DISABLE_SCRIPT_INACTIVE=@0x10/*_UIFLAG_DISABLE_SCRIPT_INACTIVE*/
-_UIFLAG_OPENNEWWIN=@0x20/*_UIFLAG_OPENNEWWIN*/
-_UIFLAG_DISABLE_OFFSCREEN=@0x40/*_UIFLAG_DISABLE_OFFSCREEN*/
-_UIFLAG_FLAT_SCROLLBAR=@0x80/*_UIFLAG_FLAT_SCROLLBAR*/
-_UIFLAG_DIV_BLOCKDEFAULT=@0x100/*_UIFLAG_DIV_BLOCKDEFAULT*/
-_UIFLAG_ACTIVATE_CLIENTHIT_ONLY=@0x200/*_UIFLAG_ACTIVATE_CLIENTHIT_ONLY*/
-_UIFLAG_OVERRIDEBEHAVIORFACTORY=@0x400/*_UIFLAG_OVERRIDEBEHAVIORFACTORY*/
-_UIFLAG_CODEPAGELINKEDFONTS=@0x800/*_UIFLAG_CODEPAGELINKEDFONTS*/
-_UIFLAG_URL_ENCODING_DISABLE_UTF8=@0x1000/*_UIFLAG_URL_ENCODING_DISABLE_UTF8*/
-_UIFLAG_URL_ENCODING_ENABLE_UTF8=@0x2000/*_UIFLAG_URL_ENCODING_ENABLE_UTF8*/
-_UIFLAG_ENABLE_FORMS_AUTOCOMPLETE=@0x4000/*_UIFLAG_ENABLE_FORMS_AUTOCOMPLETE*/
-_UIFLAG_ENABLE_INPLACE_NAVIGATION=@0x10000/*_UIFLAG_ENABLE_INPLACE_NAVIGATION*/
-_UIFLAG_IME_ENABLE_RECONVERSION=@0x20000/*_UIFLAG_IME_ENABLE_RECONVERSION*/
-_UIFLAG_THEME=@0x40000/*_UIFLAG_THEME*/
-_UIFLAG_NOTHEME=@0x80000/*_UIFLAG_NOTHEME*/
-_UIFLAG_NOPICS=@0x100000/*_UIFLAG_NOPICS*/
-_UIFLAG_NO3DOUTERBORDER=@0x200000/*_UIFLAG_NO3DOUTERBORDER*/
-_UIFLAG_DISABLE_EDIT_NS_FIXUP=@0x400000/*_UIFLAG_DISABLE_EDIT_NS_FIXUP*/
-_UIFLAG_LOCAL_MACHINE_ACCESS_CHECK=@0x800000/*_UIFLAG_LOCAL_MACHINE_ACCESS_CHECK*/
-_UIFLAG_DISABLE_UNTRUSTEDPROTOCOL=@0x1000000/*_UIFLAG_DISABLE_UNTRUSTEDPROTOCOL*/
-_UIFLAG_HOST_NAVIGATES=@0x2000000/*_UIFLAG_HOST_NAVIGATES*/
-_UIFLAG_ENABLE_REDIRECT_NOTIFICATION=@0x4000000/*_UIFLAG_ENABLE_REDIRECT_NOTIFICATION*/
-_UIFLAG_USE_WINDOWLESS_SELECTCONTROL=@0x8000000/*_UIFLAG_USE_WINDOWLESS_SELECTCONTROL*/
-_UIFLAG_USE_WINDOWED_SELECTCONTROL=@0x10000000/*_UIFLAG_USE_WINDOWED_SELECTCONTROL*/
-_UIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE=@0x20000000/*_UIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE*/
-_UIFLAG_DPI_AWARE=@0x40000000/*_UIFLAG_DPI_AWARE*/	自定义外观。| 连接
-
-DLCTL		_DLCTL_DLIMAGES=@0x10/*_DLCTL_DLIMAGES*/
-_DLCTL_VIDEOS=@0x20/*_DLCTL_VIDEOS*/
-_DLCTL_BGSOUNDS=@0x40/*_DLCTL_BGSOUNDS*/
-_DLCTL_NO_SCRIPTS=@0x80/*_DLCTL_NO_SCRIPTS*/
-_DLCTL_NO_JAVA=@0x100/*_DLCTL_NO_JAVA*/
-_DLCTL_NO_RUNACTIVEXCTLS=@0x200/*_DLCTL_NO_RUNACTIVEXCTLS*/
-_DLCTL_NO_DLACTIVEXCTLS=@0x400/*_DLCTL_NO_DLACTIVEXCTLS*/
-_DLCTL_DOWNLOADONLY=@0x800/*_DLCTL_DOWNLOADONLY*/
-_DLCTL_NO_FRAMEDOWNLOAD=@0x1000/*_DLCTL_NO_FRAMEDOWNLOAD*/
-_DLCTL_RESYNCHRONIZE=@0x2000/*_DLCTL_RESYNCHRONIZE*/
-_DLCTL_PRAGMA_NO_CACHE=@0x4000/*_DLCTL_PRAGMA_NO_CACHE*/
-_DLCTL_NO_BEHAVIORS=@0x8000/*_DLCTL_NO_BEHAVIORS*/
-_DLCTL_NO_METACHARSET=@0x10000/*_DLCTL_NO_METACHARSET*/
-_DLCTL_URL_ENCODING_DISABLE_UTF8=@0x20000/*_DLCTL_URL_ENCODING_DISABLE_UTF8*/
-_DLCTL_URL_ENCODING_ENABLE_UTF8=@0x40000/*_DLCTL_URL_ENCODING_ENABLE_UTF8*/
-_DLCTL_NOFRAMES=@0x80000/*_DLCTL_NOFRAMES*/
-_DLCTL_FORCEOFFLINE=@0x10000000/*_DLCTL_FORCEOFFLINE*/
-_DLCTL_NO_CLIENTPULL=@0x20000000/*_DLCTL_NO_CLIENTPULL*/
-_DLCTL_SILENT=@0x40000000/*_DLCTL_SILENT*/
-_DLCTL_OFFLINEIFNOTCONNECTED=@0x80000000/*_DLCTL_OFFLINEIFNOTCONNECTED*/
-_DLCTL_OFFLINE=@0x80000000/*_DLCTL_OFFLINE*/	控制下载行为。| 连接
-userAgent		代理	
-crossDomain	bool	默认true
-Ture
-false	
-
+ 具体见PAF文件。
+ 
 #### 3.3.3.6	 webkit内核打开网页
  
 {"emit":"open","Obj":"web","AppType":2,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
@@ -476,6 +449,33 @@ userAgent		代理
 crossDomain	bool	默认true
 Ture
 false	
+
+####  3.3.3.7	 blink内核打开网页 
+{"emit":"open","Obj":"web","AppType":3,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null, "userAgent":null,"crossDomain":true}}
+
+名称	设置	含义	说明
+emit	open	必需。打开网页事件请求。	
+Obj	web	必需。	
+AppType	3	必需。
+1 IE内核
+2 webkit内核
+3 blink 内核	若为负数-3,则是浮动窗口
+pos	{"left":372,"top":203,"width":606,"height":406}	必需。
+1 默认使用代码自动识别的位置。
+	对不同的浏览器，自动识别的位置需要优化
+par		必需。优先级别依次下降	三个参数必须有一个不是空。
+htmlStr		Html代码	
+HttpServer_startUrl		以服务器形式打开本地html文件路径，可以是绝对或者相对路径。/为分隔符。	
+URL	http://www.appemit.com 或者
+/demo/htmlDemo/html.html	支持网页地址或者本地html文件路径。	
+Par0		可选。	
+header		头部	
+userAgent		代理	
+crossDomain	bool	默认true
+Ture
+false	
+
+
 	
 ### 3.3.4	关闭
 
@@ -554,15 +554,17 @@ Obj	AppEmit	必需。
 1.	支持linux mac？
 
 目前版本不支持，使用在windows系统上。
+
 2.	免费版本有何限制条件？
 
 每80次消息发送时有弹窗。
 
-收费版本没有限制，包括支持局域网。
+收费版本没有限制，有企业版和VIP企业版，包括支持局域网。
 
 3.	测试点击连接，为何没有反应？ 
 
 首先要打开AppEmit.exe服务，可以F12查看报错情况。重启系统后，AppEmit.exe进程自动开启，没有被关闭。
+
 4.	如何开发插件？
 
 使用HPSocket的C接口。目前在测试中。

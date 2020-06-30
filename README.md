@@ -1,28 +1,27 @@
 AppEmit v0.3.8
 
 # 1. Overview
+ 
+AppEmit is a lightweight, scalable middleware that communicates with each other between applications, especially browsers. Web Socket, which mainly uses HTML5 standard, is called by default, and the JSON format passes parameters.
+	
+## Key implementations of the functions:
+1) Play web pages or Flash files with flash in your browser, including swf interactive animations, flv movies, etc.
 
-Appemit is a kind of extensible lightweight middleware that can communicate between applications (especially browsers) and local programs. It mainly uses HTML5 international standard web socket for calling, which is asynchronous by default and JSON format for parameter transmission. Main functions:
+2) Open and operate local files in a browser, such as office software
 
-### Main functions:
+3) Develop a encapsulated plug-in for local hardware DLL driver modules to operate and control local card readers, printers, scanners, high cameras, U shields and other hardware devices in the web page
 
-1) Play the webpage or Flash file containing flash in the browser, including SWF interactive animation, flv movie, etc
+4) Communication between applications, such as chat
 
-2) Open and operate local files in browser, such as office software
+5) Embedding the IE kernel web page in Chrome allows you to read html without modifying the original ActiveX, while supporting open source kernels wke and blink
 
-3) Develop the package plug-in of the local hardware DLL driver module, realize the operation and control of the local hardware devices such as card reader, printer, scanner, high timer, U shield, etc. in the web page
+## Solve the problem with the problem
 
-4) Communication between applications
+1) Chrome browsers with an international market share of more than 68% (data source Netmarketshare; more than 25% domestic) will no longer support flash (NPAPI) after December 2020, while Microsoft's edge does not support ActiveX.
 
-5) Embed IE kernel web page in Chrome
+2) Customers are used to using browsers to handle a variety of business, can call the IE kernel.
 
-### Problem solving
-
-1) More than 68% of chrome browsers (data source: netmarketshare; over 25% in China) in the international market share no longer support flash after December 2020, and Microsoft's edge does not support ActiveX.
-
-2) Customers are used to using browsers to handle various businesses.
-
-3) The scene needs for DLL, ActiveX, flash and other files used by enterprise customers such as game vendors, banks, hospitals, power, hardware, etc.
+3) Gamers, banks, hospitals, power, hardware, and other enterprise customers using dll, ActiveX, flash and other files need to be required.
 
 
 Program name AppEmit.exe
@@ -36,6 +35,16 @@ Email appemit(at) appemit.com
 [GitHub download address ](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
 
 [content distribution download address, update lag ](https://cdn.jsdelivr.net/gh/appemit/appemit/dist/AppEmit.zip)
+
+
+### Github directory description
+
+ ├dist      :  download the zip compression package for this folder.   included NPSWF
+ ├docs      :  skipped
+ ├plugins    :  contain more plug-ins, when using automatically installed, if the LAN use please download.
+ ├README.md
+ └README_zh.md
+
 
 ## 1.1 service conditions
 
@@ -112,7 +121,9 @@ And flash player AppEmbed.html
 Mail: appemit(at)appemit.com
 
 
-# 2. Plug in scenario
+# 2. Plug in scenario 
+
+(please refer to the latest PDF file description in the download documents. )
 
 ## 2.1 obtaining client information
 
@@ -268,6 +279,15 @@ The priority of the three factors decreased in turn.
 
 Please pay attention.
 
+###2.4.3 blink kernel
+ "AppType"：3 use the open source blink kernel (webkit enhanced) to open web pages
+ "{ emit"："open","Obj"："web","AppType"：3,"pos"：1,"par"：{"htmlStr"：null,"HttpServer_startUrl"：null,"URL"："http://www.appemit.com "}," par0"：{"header"：null,"userAgent"：null,"crossDomain"：true}}"
+
+ Set htmlStr can directly open html source code.
+ set HttpServer_startUrl, can open local html files.
+ set URL open the web page. The three priorities fall in turn.
+ 
+ 
 # 3. Parameters
 (please refer to the latest PDF file description in the download documents. )
 ## 3.1 connection
@@ -570,67 +590,7 @@ htmlStr-Html
 Httpserver \ u starturl task executor
 URL http://www.appemit.com/ Donors
 /demo/html demo/html.html  
-Paragraph 0
-Cephalic type
-noScript
-Ture
-false
-UIFLAG		_UIFLAG_DIALOG=@0x1/*_UIFLAG_DIALOG*/
-_UIFLAG_DISABLE_HELP_MENU=@0x2/*_UIFLAG_DISABLE_HELP_MENU*/
-_UIFLAG_NO3DBORDER=@0x4/*_UIFLAG_NO3DBORDER*/
-_UIFLAG_SCROLL_NO=@0x8/*_UIFLAG_SCROLL_NO*/
-_UIFLAG_DISABLE_SCRIPT_INACTIVE=@0x10/*_UIFLAG_DISABLE_SCRIPT_INACTIVE*/
-_UIFLAG_OPENNEWWIN=@0x20/*_UIFLAG_OPENNEWWIN*/
-_UIFLAG_DISABLE_OFFSCREEN=@0x40/*_UIFLAG_DISABLE_OFFSCREEN*/
-_UIFLAG_FLAT_SCROLLBAR=@0x80/*_UIFLAG_FLAT_SCROLLBAR*/
-_UIFLAG_DIV_BLOCKDEFAULT=@0x100/*_UIFLAG_DIV_BLOCKDEFAULT*/
-_UIFLAG_ACTIVATE_CLIENTHIT_ONLY=@0x200/*_UIFLAG_ACTIVATE_CLIENTHIT_ONLY*/
-_UIFLAG_OVERRIDEBEHAVIORFACTORY=@0x400/*_UIFLAG_OVERRIDEBEHAVIORFACTORY*/
-_UIFLAG_CODEPAGELINKEDFONTS=@0x800/*_UIFLAG_CODEPAGELINKEDFONTS*/
-_UIFLAG_URL_ENCODING_DISABLE_UTF8=@0x1000/*_UIFLAG_URL_ENCODING_DISABLE_UTF8*/
-_UIFLAG_URL_ENCODING_ENABLE_UTF8=@0x2000/*_UIFLAG_URL_ENCODING_ENABLE_UTF8*/
-_UIFLAG_ENABLE_FORMS_AUTOCOMPLETE=@0x4000/*_UIFLAG_ENABLE_FORMS_AUTOCOMPLETE*/
-_UIFLAG_ENABLE_INPLACE_NAVIGATION=@0x10000/*_UIFLAG_ENABLE_INPLACE_NAVIGATION*/
-_UIFLAG_IME_ENABLE_RECONVERSION=@0x20000/*_UIFLAG_IME_ENABLE_RECONVERSION*/
-_UIFLAG_THEME=@0x40000/*_UIFLAG_THEME*/
-_UIFLAG_NOTHEME=@0x80000/*_UIFLAG_NOTHEME*/
-_UIFLAG_NOPICS=@0x100000/*_UIFLAG_NOPICS*/
-_UIFLAG_NO3DOUTERBORDER=@0x200000/*_UIFLAG_NO3DOUTERBORDER*/
-_UIFLAG_DISABLE_EDIT_NS_FIXUP=@0x400000/*_UIFLAG_DISABLE_EDIT_NS_FIXUP*/
-_UIFLAG_LOCAL_MACHINE_ACCESS_CHECK=@0x800000/*_UIFLAG_LOCAL_MACHINE_ACCESS_CHECK*/
-_UIFLAG_DISABLE_UNTRUSTEDPROTOCOL=@0x1000000/*_UIFLAG_DISABLE_UNTRUSTEDPROTOCOL*/
-_UIFLAG_HOST_NAVIGATES=@0x2000000/*_UIFLAG_HOST_NAVIGATES*/
-_UIFLAG_ENABLE_REDIRECT_NOTIFICATION=@0x4000000/*_UIFLAG_ENABLE_REDIRECT_NOTIFICATION*/
-_UIFLAG_USE_WINDOWLESS_SELECTCONTROL=@0x8000000/*_UIFLAG_USE_WINDOWLESS_SELECTCONTROL*/
-_UIFLAG_USE_WINDOWED_SELECTCONTROL=@0x10000000/*_UIFLAG_USE_WINDOWED_SELECTCONTROL*/
-_UIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE=@0x20000000/*_UIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE*/
-_UIFLAG_DPI_AWARE=@0x40000000/*_UIFLAG_DPI_AWARE*/	自定义外观。| 连接
-
-DLCTL		_DLCTL_DLIMAGES=@0x10/*_DLCTL_DLIMAGES*/
-_DLCTL_VIDEOS=@0x20/*_DLCTL_VIDEOS*/
-_DLCTL_BGSOUNDS=@0x40/*_DLCTL_BGSOUNDS*/
-_DLCTL_NO_SCRIPTS=@0x80/*_DLCTL_NO_SCRIPTS*/
-_DLCTL_NO_JAVA=@0x100/*_DLCTL_NO_JAVA*/
-_DLCTL_NO_RUNACTIVEXCTLS=@0x200/*_DLCTL_NO_RUNACTIVEXCTLS*/
-_DLCTL_NO_DLACTIVEXCTLS=@0x400/*_DLCTL_NO_DLACTIVEXCTLS*/
-_DLCTL_DOWNLOADONLY=@0x800/*_DLCTL_DOWNLOADONLY*/
-_DLCTL_NO_FRAMEDOWNLOAD=@0x1000/*_DLCTL_NO_FRAMEDOWNLOAD*/
-_DLCTL_RESYNCHRONIZE=@0x2000/*_DLCTL_RESYNCHRONIZE*/
-_DLCTL_PRAGMA_NO_CACHE=@0x4000/*_DLCTL_PRAGMA_NO_CACHE*/
-_DLCTL_NO_BEHAVIORS=@0x8000/*_DLCTL_NO_BEHAVIORS*/
-_DLCTL_NO_METACHARSET=@0x10000/*_DLCTL_NO_METACHARSET*/
-_DLCTL_URL_ENCODING_DISABLE_UTF8=@0x20000/*_DLCTL_URL_ENCODING_DISABLE_UTF8*/
-_DLCTL_URL_ENCODING_ENABLE_UTF8=@0x40000/*_DLCTL_URL_ENCODING_ENABLE_UTF8*/
-_DLCTL_NOFRAMES=@0x80000/*_DLCTL_NOFRAMES*/
-_DLCTL_FORCEOFFLINE=@0x10000000/*_DLCTL_FORCEOFFLINE*/
-_DLCTL_NO_CLIENTPULL=@0x20000000/*_DLCTL_NO_CLIENTPULL*/
-_DLCTL_SILENT=@0x40000000/*_DLCTL_SILENT*/
-_DLCTL_OFFLINEIFNOTCONNECTED=@0x80000000/*_DLCTL_OFFLINEIFNOTCONNECTED*/
-_DLCTL_OFFLINE=@0x80000000/*_DLCTL_OFFLINE*/	Control download behavior. |Connect
-Useragent agent
-Crossdomain bool default true
-Ture
-false
+ (more info please refer to the latest PDF file description in the download documents. )
 
 #### 3.3.3.6 WebKit kernel opens Web page
 
@@ -655,7 +615,32 @@ Useragent agent
 Crossdomain bool default true
 Ture
 false
-	
+
+####3.3.3.7 blink kernel opens
+ "{ emit"："open","Obj"："web","AppType"：3,"pos"：1,"par"：{"htmlStr"：null,"HttpServer_startUrl"：null,"URL"："http://www.appemit.com "}," par0"：{"header"：null,"userAgent"：null,"crossDomain"：true}}"
+
+ Name setting meaning description
+ emit open necessary. open web page event request.
+ Obj web necessary.
+ AppType 3 necessary.
+ 1IE kernel
+ 2 webkit Kernel
+ 3 blink If the kernel is negative-3, it is a floating window
+ pos {"left"：372,"top"：203,"width"：606,"height"：406} necessary.
+ 1 By default, use code to automatically identify locations.
+ For different browsers, the location of automatic recognition needs to be optimized
+ par necessary. the priority level drops in turn three parameters must have one not empty.
+ htmlStr Html code
+ HttpServer_startUrl open html local file path as a server, it can be absolute or relative. / is a separator.
+ URL http://www.appemit.com or
+ / demo/htmlDemo/html.html supports web addresses or local html file paths. 
+ Par0 optional.
+ header head
+ userAgent agent
+ crossDomain bool default true
+ Ture
+ false
+ 
 ### 3.3.4 close
 
 #### 3.3.4.1 close the app corresponding to Sid
@@ -729,13 +714,20 @@ Obj appemit required.
 
 # 4. Questions
 
-1. Support Linux Mac?
-It is not supported in the current version and  used on Windows system.
-2. What are the limitations of the free version?
-There are pop ups every 80 messages sent.
-There is no limit to the charging version, including LAN support.
-3. Why didn't the test Click to connect respond?
-Open first AppEmit.exe Service. You can check the error reporting status in F12. After restarting the system, AppEmit.exe The process started automatically and was not shut down.
-4. How to develop plug-ins?
-Use the C interface of hpsocket. Currently under test.
+1. Support linux mac?
 
+Current versions are not supported and are used on windows systems.
+
+2. What are the restrictions for the free version?
+
+There are pop-up windows every 80 times a message is sent.
+
+There are no limits on fee versions, there are Enterprise and VIP Enterprise editions, including support for local area networks.
+
+3. Test click connection, why not respond? 
+
+The first step is to open the AppEmit.exe service, you can F12 to see the error report. After restarting the system, the AppEmit.exe process is automatically turned on and not shut down.
+
+4. How do I develop plug-ins?
+
+Use the C interface of HPSocket. Currently in testing.
