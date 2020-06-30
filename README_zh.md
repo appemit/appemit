@@ -39,11 +39,13 @@ Email	appemit(at)appemit.com
 
 ### Github 的目录说明
 
-├ dist           下载此文件夹的zip压缩包即可。已经包含了NPSWF和帮助文档demo
-├ docs         略过
-├ plugins      含有更多的插件，使用时自动安装，如果局域网使用请自行下载。
-├ README.md 
-└ README_zh.md
+~~~
+ ├ dist           下载此文件夹的zip压缩包即可。已经包含了NPSWF和帮助文档demo
+ ├ docs         略过
+ ├ plugins      含有更多的插件，使用时自动安装，如果局域网使用请自行下载。
+ ├ README.md 
+ └ README_zh.md
+~~~
 
 ## 1.1	使用条件
 

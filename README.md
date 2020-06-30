@@ -1,4 +1,4 @@
-AppEmit v0.3.8
+AppEmit v0.6.0
 
 # 1. Overview
  
@@ -38,14 +38,14 @@ Email appemit(at) appemit.com
 
 
 ### Github directory description
-
- ├dist      :  download the zip compression package for this folder.   included NPSWF
- ├docs      :  skipped
- ├plugins    :  contain more plug-ins, when using automatically installed, if the LAN use please download.
- ├README.md
- └README_zh.md
-
-
+~~~
+  ├dist      :  download the zip compression package for this folder.   included NPSWF
+  ├docs      :  skipped
+  ├plugins    :  contain more plug-ins, when using automatically installed, if the LAN use please download.
+  ├README.md
+  └README_zh.md
+~~~
+ 
 ## 1.1 service conditions
 
 Windows system, support XP or above.
