@@ -1,6 +1,6 @@
 AppEmit v0.6.3
 
-#  Overview
+#  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
 Appemit is a lightweight middleware that can be easily extended to communicate  applications (especially browsers) with local programs. The web socket of HTML5 standard is mainly used for calling. The default is asynchronous, and the parameters are transferred in JSON format.
 
