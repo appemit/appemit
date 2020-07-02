@@ -2,8 +2,8 @@ AppEmit v0.6.3
 
 #  Overview
 
-AppEmit is a lightweight, scalable middleware that communicates with each other between applications, especially browsers. Web Socket, which mainly uses HTML5 standard, is called by default, and the JSON format passes parameters.
-	
+Appemit is a lightweight middleware that can be easily extended to communicate  applications (especially browsers) with local programs. The web socket of HTML5 standard is mainly used for calling. The default is asynchronous, and the parameters are transferred in JSON format.
+
 ### main features:
 
 1) Play web pages or Flash files with flash in your browser, including swf interactive animations, flv movies, etc.
@@ -39,11 +39,11 @@ Email appemit (at) appemit.com
 ### Directory Description of Github
 
 ~~~
- Dist can download the zip compression package for this folder. ALREADY INCLUDED NPSWF AND HELP DOCUMENTATION DEMO
- Docs skip
- Plugins contain more plug-ins, which are installed automatically when used, and download them yourself if the LAN is used.
- README.md 
- README_zh.md
+ ├ dist           下载此文件夹的zip压缩包即可。已经包含了NPSWF和帮助文档demo
+ ├ docs         略过
+ ├ plugins      含有更多的插件，使用时自动安装，如果局域网使用请自行下载。
+ ├ README.md 
+ └ README_zh.md
 ~~~
 
 ### Conditions of use
