@@ -39,9 +39,9 @@ Email appemit (at) appemit.com
 ### Directory Description of Github
 
 ~~~
- ├ dist           下载此文件夹的zip压缩包即可。已经包含了NPSWF和帮助文档demo
- ├ docs         略过
- ├ plugins      含有更多的插件，使用时自动安装，如果局域网使用请自行下载。
+ ├ dist                 Download the zip package of this folder. Npswf and help document demo are included
+ ├ docs          
+ ├ plugins            It contains more plug-ins, which can be installed automatically when using. If you use LAN, please download it yourself.
  ├ README.md 
  └ README_zh.md
 ~~~
@@ -52,7 +52,7 @@ Windows system, support XP above.
  
 ### Technology Dependency
 
-- Web Socket uses open source controls (https://github.com/ldcsaa/HP-Socket) to support ssl.
+- Web Socket uses open source controls [HPSocket](https://github.com/ldcsaa/HP-Socket) to support ssl.
  - The Dll file opens the C interface, where the basic secondary development control is possible.
  - HPSocket4C_U.dll HPSocket4C-SSL_U.dll
 - IE kernel calls flash Active control
@@ -62,7 +62,7 @@ Windows system, support XP above.
 
 ##  Getting Started
  
-1. Download the AppEmit file compression package (without plug-ins less than 6M) and run AppEmit.exe once. Set boot boot, avoid killing poison software off. Only one AppEmit.exe process can be turned on at the same time.
+1. Download the AppEmit file compression package (under **/dist** dir，without plug-ins less than 6M) and run AppEmit.exe once. Set boot boot, avoid killing poison software off. Only one AppEmit.exe process can be turned on at the same time.
 2. Web page registration gets set cid, clientKey, to obtain permission to connect. Open the html file inside the demo folder or the demo connection on the home page or test with the temporary account cid.
 3. In-background initialization of Appemit connection service
     `initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")`
