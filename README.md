@@ -65,7 +65,7 @@ Windows system, support XP above.
 1. Download the AppEmit file compression package (without plug-ins less than 6M) and run AppEmit.exe once. Set boot boot, avoid killing poison software off. Only one AppEmit.exe process can be turned on at the same time.
 2. Web page registration gets set cid, clientKey, to obtain permission to connect. Open the html file inside the demo folder or the demo connection on the home page or test with the temporary account cid.
 3. In-background initialization of Appemit connection service
-     initAppEmit ("ws://localhost: 80/appemit?cid?00000-1-sid-1-flag-1)"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    `initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")`
 4. Set up clientKey authorization, (clientKey is private, after publication needs to be confidentially confused encryption js) initialization data and authorization, etc.
 
 ```

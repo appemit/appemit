@@ -69,7 +69,7 @@ Windows系统，支持XP以上。
 1.	下载AppEmit文件压缩包（不含插件小于6M），运行AppEmit.exe一次即可。设置了开机自启动，应避免被杀毒软件关闭。同时只能开启一个AppEmit.exe进程。
 2. 网页注册获得设置cid，clientKey，获得连接授权。打开demo文件夹里面的html文件或者主页的demo连接或者使用临时账户cid=00000-1测试。
 3.	后台初始化Appemit连接服务
-     initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")
+     `initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")`
 4.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
 
 ```
