@@ -19,19 +19,19 @@
 
 <div class="container">
 <input type="text" class="form-control" size="50" style="margin-bottom:3px;" id="input_url" value="ws://localhost:80/appemit?cid=00000-1&flag=1" />
-     <button type="button" id="btn_Flash" onclick="init_App() " >websocket</button> &nbsp;  &nbsp; &nbsp;<a href="index.html" target="_blank">hardware Demo</a> &nbsp; &nbsp;<a href="openpdf.html" target="_blank">PDF</a>&nbsp; &nbsp;<a href="http://www.appemit.com" target="_blank">Homepage</a> &nbsp;  &nbsp; <a href="http://www.appemit.com/login.html" target="_blank">Register</a> 
+     <button type="button" id="btn_Flash" onclick="init_App() " >websocket</button> &nbsp;  &nbsp; &nbsp;<a href="index.html" target="_blank">hardware Demo</a> &nbsp; &nbsp;<a href="office.html?file=1" target="_blank">PDF_Office</a>&nbsp; &nbsp;<a href="http://www.appemit.com" target="_blank">Homepage</a> &nbsp;  &nbsp; <a href="http://www.appemit.com/login.html" target="_blank">Register</a> 
       <div >  
 		<div style="font-size:10px">f1. webtype:   
-				<input type="text" class="form-control" size="90" style="margin-bottom:3px;" id="input_par" value='{"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1,"par0":{"header":null,"userAgent":null,"crossDomain":true}}'/>
+				<input type="text" class="form-control" size="90" style="margin-bottom:3px;" id="input_par" value='{"emit":"open","Obj":"flash","AppType":1,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp14/yzg/20140328/bombit7/zx_game7.htm","pos":1,"par0":{"header":null,"userAgent":null,"crossDomain":true,"show_UpdateTool":true}}'/>
 		   	<button type="button" id="btn_Flash" onclick="input_App() " >do it</button>
 		   </div>
  
-	<div style="font-size:10px">f2. web swf file: &nbsp; &nbsp;{"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent","header":null,"userAgent":null,"crossDomain":true}}</div>
-    <div style="font-size:10px">f3. web vedio file:   &nbsp; &nbsp;{"emit":"open","Obj":"flash","AppType":3,"src":"https://cdn.jsdelivr.net/gh/appemit/appemit/docs/vedio/x1.flv","pos":1,"par0":{"autoPlay":1,"loop":1,"header":null,"userAgent":null,"crossDomain":true}}</div>
-	 <div style="font-size:10px">f4.support localfile: d:/.../test1.swf or demo/htmlDemo/test1.swf , need install flash ActiveX: ; &nbsp; &nbsp;{"emit":"open","Obj":"flash","AppType":4,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc"}}</div>
+	<div style="font-size:10px">f2. web swf file: &nbsp; &nbsp;{"emit":"open","Obj":"flash","AppType":2,"src":"http://sxiao.4399.com/4399swf/upload_swf/ftp18/liuxy/20160130/17801/game.swf","pos":1,"par0":{"autoPlay":true,"loop":true,"quality":"high","wmode":"Transparent","header":null,"userAgent":null,"crossDomain":true,"show_UpdateTool":true}}</div>
+    <div style="font-size:10px">f3. web vedio file:   &nbsp; &nbsp;{"emit":"open","Obj":"flash","AppType":3,"src":"https://cdn.jsdelivr.net/gh/appemit/appemit/docs/vedio/x1.flv","pos":1,"par0":{"autoPlay":1,"loop":1,"header":null,"userAgent":null,"crossDomain":true,"show_UpdateTool":true}}</div>
+	 <div style="font-size:10px">f4.support localfile: d:/.../test1.swf or demo/htmlDemo/test1.swf , need install flash ActiveX:  &nbsp; &nbsp;{"emit":"open","Obj":"flash","AppType":4,"src":"http://img1.yo4399.com/swf/00/0ff035e0e96584c07df65ab3636f72.swf","pos":1,"par0":{"autoPlay":1,"toolbar":0,"rightMenu":0,"hitCaption":0,"hideStop":0,"loop":1,"volumeMute":0,"flashVars":"a=0&b=0&c=SetInSrc","show_UpdateTool":true}}</div>
  
 	 <div style="font-size:10px">close flash:  {"emit":"close","Obj":"flash"}           &nbsp;  &nbsp; &nbsp;      or   &nbsp;   &nbsp; {"emit":"closeAll","Obj":"flash"}</div>      
-	    <div style="font-size:10px">w1.Embed IE(支持flash):   &nbsp; &nbsp;{"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null,"noScriptErr":true,"UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true,"rightMenu":-1}}</div>      
+	    <div style="font-size:10px">w1.Embed IE(支持flash):   &nbsp; &nbsp;{"emit":"open","Obj":"web","AppType":1,"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"http://www.appemit.com"},"par0":{"header":null,"noScriptErr":true,"UIFLAG":null,"DLCTL":null,"userAgent":null,"crossDomain":true,"rightMenu":-1,"show_UpdateTool":true}}</div>      
 
 		   </div>
              <div style="margin-top:10px;text-align:center">
