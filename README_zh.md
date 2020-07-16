@@ -1,4 +1,4 @@
-AppEmit  v0.6.3
+AppEmit  v0.8.0
 
 #  概述  [English](https://github.com/appemit/appemit/blob/master/README.md)
 
@@ -6,15 +6,16 @@ AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的�
 	
 ### 主要功能：
 
-1)	在浏览器播放含有flash的网页或Flash文件，包括swf交互动画、flv影视等
+1)	在所有浏览器播放含有flash的网页或Flash文件，包括swf交互动画、flv影视等
 
-2)	在浏览器打开、操作本地文件，比如办公软件
+2)	在所有浏览器打开、操作本地文件，比如阅读PDF；创建、阅读、编辑Office文件，且支持JavaScript代码操作
 
 3)	开发本地硬件DLL驱动模块的封装插件，实现在网页中操作控制本地的读卡器、打印机、扫描仪、高拍仪、U盾等各种硬件设备
 
 4)	各个应用程序之间通信，比如聊天
 
-5)	在Chrome里嵌入IE内核网页，可以不修改原有的ActiveX读取html，同时支持开源内核wke和blink
+5)	在Chrome里嵌入IE内核网页，保护源码，可以不修改原有的ActiveX读取html，同时支持开源内核wke和blink
+
 
 ### 解决问题
 

@@ -1,4 +1,4 @@
-AppEmit v0.6.3
+AppEmit  v0.8.0
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -6,15 +6,15 @@ Appemit is a lightweight middleware that can be easily extended to communicate  
 
 ### main features:
 
-1) Play web pages or Flash files with flash in your browser, including swf interactive animations, flv movies, etc.
+1) Play web pages or flash files containing flash in all browsers, including SWF interactive animation, flv movies and so on
 
-2) Open and operate local files in a browser, such as office software
+2) Open and operate local files in all browsers, such as reading PDF; create, read and edit office files, and support JavaScript code operation
 
-3) Develop a encapsulated plug-in for local hardware DLL driver modules to operate and control local card readers, printers, scanners, high cameras, U shields and other hardware devices in the web page
+3) The package plug-in of local hardware DLL driver module is developed to realize the operation and control of local hardware devices such as card reader, printer, scanner, high timer, U shield and so on
 
 4) Communication between applications, such as chat
 
-5) Embedding the IE kernel web page in Chrome allows you to read html without modifying the original ActiveX, while supporting open source kernels wke and blink
+5) The IE kernel web page is embedded in chrome to protect the source code. It can read HTML without modifying the original ActiveX. At the same time, it supports the open source kernel WKE and blink
 
 ### Solve the problem with the problem
 
