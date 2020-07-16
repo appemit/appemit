@@ -1,4 +1,4 @@
-AppEmit  v0.8.0
+AppEmit  v0.8.1
 
 #  概述  [English](https://github.com/appemit/appemit/blob/master/README.md)
 
@@ -99,6 +99,16 @@ var init_AE={
 [AppEmbed App](http://www.appemit.com/demo/AppEmbed.html)
 
 [Demo](http://www.appemit.com/demo/index.html)
+
+- 嵌入IE
+![嵌入IE]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+
+- 嵌入flash swf
+ ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1_appemit_ActiveX.gif)
+ 
+ - 嵌入office word, JavaScript控制
+  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/5_office_word_js.gif)
+ 
 
 ##  联系
 

@@ -1,4 +1,4 @@
-AppEmit  v0.8.0
+AppEmit  v0.8.1
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -96,6 +96,17 @@ Or test online
 
 [Demo](http://www.appemit.com/demo/index.html)
 
+- Embed IE
+![嵌入IE]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+
+- Embedflash swf
+ ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/1_appemit_ActiveX.gif)
+ 
+ - Embedoffice word, JavaScript code control
+  ![image]( https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/5_office_word_js.gif)
+ 
+ 
+ 
 ##  Contact
 
 Email: appemit (at) appemit.com
