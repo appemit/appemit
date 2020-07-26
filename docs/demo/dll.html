@@ -26,7 +26,10 @@
 		   </div>  
   	
 	<div style="font-size:10px"> 2. 要安装flash ocx&nbsp;   {"emit":"open","Obj":"dll","AppType":1,"src":[],"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"/demo/htmlDemo/js/dllJs.html","webJs":1} </div>
- 	 	<div style="font-size:10px"> 3.dll无界面 &nbsp;   {"emit":"open","Obj":"dll","AppType":3,"src":[],"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"/demo/htmlDemo/js/dllJs.html","webJs":1,"AppShow":false},"par0":{"AppMethod":"msg Synchronization component need set: POST" }}</div>
+ 	 	<div style="font-size:10px"> 3.dll开发无界面 &nbsp;   {"emit":"open","Obj":"dll","AppType":3,"src":[],"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"/demo/htmlDemo/js/dllJs.html","webJs":1,"AppShow":false},"par0":{"AppMethod":"msg Synchronization component need set: POST" }}</div>
+ 	 	<div style="font-size:10px"> 4.第3方dll调用无界面 &nbsp;   {"emit":"open","Obj":"dll","AppType":4,"src":[],"pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"/demo/htmlDemo/js/dllJs.html","webJs":1,"AppShow":false},"par0":{"AppMethod":"msg Synchronization component need set: POST" }}</div>
+	 	 
+	 
 	 <div >flash_OCX
      <button type="button" id="btn_runCmd" onclick="runCmd('stop') " >stop</button>  
 	 <button type="button" id="btn_runCmd" onclick="runCmd('play') " >play</button>  
@@ -37,6 +40,9 @@
 	    file
 	 <button type="button" id="btn_runCmd" onclick="runCmd('file_upload') " >upload</button>    
 	 	 <button type="button" id="btn_runCmd" onclick="runCmd('file_download') " >download</button> 
+		 	   dll  
+			    <button type="button" id="btn_runCmd" onclick="runCmd('RevMsg') " >3RevMsg</button>    
+	 <button type="button" id="btn_runCmd" onclick="runCmd('myadd') " >4myadd(1,5)</button>    
     </div >     
  <div readonly id="AppEmbed"  style="border:none; 	width:100%;height:100%" ></textarea>
 	 
@@ -60,7 +66,7 @@
  
 
 
-	  var file=getQueryString("file") ;     //office_dev.html?file=pdf
+	  var file=getQueryString("file") ;     //office.html?file=pdf
 	  var  reportXPath;
 	  
 	  var init_mark=  initAppEmit("ws://localhost:80/appemit?cid=00000-1&flag=1");
@@ -82,13 +88,10 @@
 				return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
 	  }
 		 
-	runCmd=function(cmdId){
-	/*
-        io.open()
-        com.DumpTypeInfo(shockwave)
-        execute("pause") //按任意键继续
-        io.close();//关闭控制台
-		*/
+	runCmd=function(cmdId){                 //  或者在嵌入网页 dllJs.html 中 js 直接调用
+ 
+       // com.DumpTypeInfo(shockwave)
+
 		var codeStr;
       
 	 if(cmdId=="openDlg"	){
@@ -168,8 +171,22 @@ if  reportXPath  {AppJsObject.reportX.OpenReport(reportXPath)
   var download_status,dl_err,info,savePath=AppJs.download(upPar);
   return {download_status=download_status;err=dl_err;info=info;savePath=savePath}
 */});
+ 
+		}else if(cmdId=="RevMsg"	){   //执行AppDll_RevMsg方法
+			  codeStr =   txt2code(function(){/*
+ AppJsObject.dll_demo1.AppDll_RevMsg(AppDll_hwnd,'','{"data":"send from bowser JS ","info":555}'); 
+*/});
+ 
+		}else if(cmdId=="myadd"	){   
+			  codeStr =   txt2code(function(){/*
+
+ var sum=AppJsObject.dll_demo1.myAdd(1,5);
+return  sum; 
+*/});
+ 
 		}
-		
+ 
+ 	
 		
  	      //codeStr转为为url 或者二进制？ 
  	//  var Req={"emit":"runCmd","Obj":"dll","codeStr":Base64.encode(codeStr),Base64:1 }    //都支持
