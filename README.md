@@ -6,12 +6,12 @@ Appemit is a lightweight middleware that can be easily extended to communicate  
 
 ### main features:
 
- - 1) Play web pages or Flash files containing flash in almost any browser, including swf interactive animations, flv movies, etc.
- - 2) Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office files, and support JavaScript code operations.
- - 3) Call third-party DLLs, OCX components, as well as system winApi functions, tcc, python, lua, etc. in the browser.
- - 4) Develop a package plug-in for the local hardware DLL driver module to operate and control local card readers, printers, scanners, high-shooting instruments, U shields and other hardware devices in the web page.
- - 5) Communication between applications, such as chat.
- - 6) Embedding the IE kernel web page in Chrome protects the source code, allows you to keep the original ActiveX reading html from being modified, while supporting open source kernelwke and blink.
+ - 1  Play web pages or Flash files containing flash in almost any browser, including swf interactive animations, flv movies, etc.
+ - 2  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office files, and support JavaScript code operations.
+ - 3  Call third-party DLLs, OCX components, as well as system winApi functions, tcc, python, lua, etc. in the browser.
+ - 4  Develop a package plug-in for the local hardware DLL driver module to operate and control local card readers, printers, scanners, high-shooting instruments, U shields and other hardware devices in the web page.
+ - 5  Communication between applications, such as chat.
+ - 6  Embedding the IE kernel web page in Chrome protects the source code, allows you to keep the original ActiveX reading html from being modified, while supporting open source kernelwke and blink.
 
 ### Solve the problem with the problem
 
