@@ -8,7 +8,8 @@
     </style>
   <!--  <script src="https://cdn.bootcss.com/firebug-lite/1.4.0/firebug-lite.js#overrideConsole"></script>  -->
       <script type="text/javascript">
-	
+	  /*
+	//测试
      console = {};
 	console.log = function () {
 	    for (var i = 0; i < arguments.length; i++) {  
@@ -52,16 +53,21 @@
 			}
 		} 
 	}  
- 
+ */
 	 
   </script>
   
 <script type="text/javascript">
- 
-	 
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 // appemit@appemit.com 问题反馈
    //AppJs 开头的变量和函数 名称不要修改
    // 代码里面不能有错误,要不没有结果
-   // 全局变量 AppJsObject， AppJsObject.objName来调用  默认为 AppJsObject.word    AppJsObject.excel  AppJsObject.powerpoint    VBA 更多可以执行宏获得，或者参考 https://docs.microsoft.com/zh-cn/office/vba/api/overview/word
+   // 全局变量 AppJsObject， AppJsObject.objName来调用  默认为 AppJsObject.word    AppJsObject.excel  AppJsObject.powerpoint   
+  //   VBA 更多可以执行宏获得，或者参考 https://docs.microsoft.com/zh-cn/office/vba/api/overview/word
+  //更改progId 可以打开office、 金山、永中的对应办公程序
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  
 	/////////////////一、js被 AppEmit调用/////////////////////////////////////////// 
   
     var AppisOpen;      //0 关闭  1打开  word   2 excel    3 ppt
@@ -80,12 +86,14 @@
 	 //如果这里重新更新定义了，则以此为准,若设置null会替换默认值。 参数结构同调用websocket时一致
 	 // AppType   webJs 最好不要在这里设置
 	  //   if(AppType){...} 可以自行判断
-	 	    var par= {  // webJs0:0,         //只能设置为0   关闭本js的控制 	;	或者注释 为默认打开控制
-							// src: "/demo/htmlDemo/file/d2.docx"     //d2.docx  x2.xlsx  p1.pptx
+	    var par=null;
+	   if(AppType==1) {
+	 	      par= {  // webJs0:0,         //只能设置为0   关闭本js的控制 	;	或者注释 为默认打开控制
+							 src: "/demo/htmlDemo/file/d2.docx"     //d2.docx  x2.xlsx  p1.pptx
 							//  ,AppType:1     //    1  word   2 excel    3 ppt
 							//	,objName:"word"               //    自动默认为  "word"     "excel"      "powerpoint"    
 							// ,comType: 1                                
-							//,progId:                             
+							  ,progId: "KWPS.Application"             // 默认 ["Word.Application","KWPS.Application","WPS.Application"]                   
 							//,ViewType:                                  
 							//,Visible: true                 //word可见
                            // ,AppShow:true                  //整体窗口不可见 必须设置fase，默认可见							
@@ -97,7 +105,43 @@
 							//,Protect:                                       
 							//,Unprotect:   
 			               }   
-			
+			}else  if(AppType==2) {
+	 	      par= {  // webJs0:0,         //只能设置为0   关闭本js的控制 	;	或者注释 为默认打开控制
+							  src: "/demo/htmlDemo/file/x2.xlsx"     //d2.docx  x2.xlsx  p1.pptx
+							//  ,AppType:2     //    1  word   2 excel    3 ppt
+							//	,objName:"excel"               //    自动默认为  "word"     "excel"      "powerpoint"    
+							// ,comType: 1                                
+							// ,progId:  ["KET.Application"]                  //默认  ["Excel.Application","KET.Application"]           
+							//,ViewType:                                  
+							//,Visible: true                 //excel可见
+                           // ,AppShow:true                  //整体窗口不可见 必须设置fase，默认可见							
+							//,cookies:                                      
+							//,userAgent:                                   
+						//	,proxy:                                         
+						//	,proxyBypass:                              
+							//,flags:                                           
+							//,Protect:                                       
+							//,Unprotect:   
+			               }   
+			}else  if(AppType==3) {
+	 	      par= {  // webJs0:0,         //只能设置为0   关闭本js的控制 	;	或者注释 为默认打开控制
+							  src: "/demo/htmlDemo/file/p1.pptx"    
+							//  ,AppType:3     //    1  word   2 excel    3 ppt
+							//	,objName:"powerpoint"               //    自动默认为  "word"     "excel"      "powerpoint"    
+							// ,comType: 1                                
+							// ,progId:  ["KWPP.Application"]                  //默认   PPT：["PowerPoint.Application","KWPP.Application"]
+							//,ViewType:                                  
+							//,Visible: true                 //ppt可见
+                           // ,AppShow:true                  //整体窗口不可见 必须设置fase，默认可见							
+							//,cookies:                                      
+							//,userAgent:                                   
+						//	,proxy:                                         
+						//	,proxyBypass:                              
+							//,flags:                                           
+							//,Protect:                                       
+							//,Unprotect:   
+			               }   
+			}
 			
 			par=JSON.stringify(par);
 		 
@@ -144,7 +188,7 @@ oRng.InsertBefore("开头插入的数据");
 Selection.TypeText("回到了首位")	;
 */});
 
-			}else if (AppisOpen==2){          //excel
+			}else if (AppisOpen==2){          //excel      AppJsObject.excel.run("test(""OK"")")
  
 		     codeStr =   txt2code(function(){/* 
 Application=AppJsObject.excel.Application;
@@ -179,7 +223,7 @@ AppJs.msgbox(AppJsObject.powerpoint.ActivePresentation.Slides.Count)
 			return codeStr;    // 必须string /null
 	}
  
-	AppJs_destroy=function(){    //AppJsObject.objName销毁前执行
+	AppJs_destroy=function(AppType){    //AppJsObject.objName销毁前执行
 		 //追加
 		 var codeStr;
 		 if  (AppisOpen==1){
@@ -262,8 +306,6 @@ AppJs.msgbox(AppJsObject.powerpoint.ActivePresentation.Slides.Count)
 	//// webform 使用//////////////////////////////////////
    get_array=function(){
    	 var  aArray = external.items(); 
-	 console.log(aArray);
-     olog( aArray)
  
    }
  //  get_array()
@@ -271,7 +313,7 @@ AppJs.msgbox(AppJsObject.powerpoint.ActivePresentation.Slides.Count)
 	////////更多功能//////////////////////////////////////////////////////////
 	//系统接口
 	call_user32=function(str,title){
-	    user32.MessageBox(0,str,title,0) ;           //   'JS直接调用WinAPI'   "user32.MessageBox"
+	    user32.MessageBox(0,str,title,0) ;           //   webjs 2 3生效  'JS直接调用WinAPI'   "user32.MessageBox"
 	}
 	 
 	</script>

@@ -9,17 +9,22 @@
   <!--  <script src="https://cdn.bootcss.com/firebug-lite/1.4.0/firebug-lite.js#overrideConsole"></script>  -->
  
 <script type="text/javascript">
- 
+ /////////////////////////////////////////////////////////////////////////////
    //AppJs 开头的变量和函数 名称不要修改
   // external  为直接访问Appemit函数
+  //// appemit@appemit.com 问题反馈
 
    // 代码里面不能有错误,要不没有结果
    // 全局变量 AppJsObject     AppJsObject.objName 访问对象
+ ///////////////////////////////////////////////////////////////////////////////////////  
+   
+   
+   
 	/////////////////一、js被 AppEmit调用/////////////////////////////////////////// 
    // 1     flash.ocx 可视化示例
    //  2    reportX.ocx     可视化OCX
    // 3       dll  个人开发 dll ,交互信息
-  //4     第三方dll 调用   
+  //4     第三方dll 调用      Photoshop.Application
    //////////////////////////////////////////////////////////////////////
     var AppisOpen;      //0 关闭 
 	var AppJs_inPar=null;
@@ -91,10 +96,11 @@
 						src:[  {
 								  // webJs0:0,                           //只能设置为0   关闭本js的控制 ;	或者注释 为默认打开控制
 								    createType:"createDll"               //  dll开发
-								    ,objName:"dll_demo1"
+								    ,objName:"dll_demo1"              //自行定义
  									,dllFile:"/plugins/private/50FCF891-1B93-4AE5-8A66-AB26A3C03378/dll_demo1.dll"     //  必须 \\   / 放在/plugins/private/clsId/文件夹下面
 									,clsId :dll_demo1_clsId  //guid   发送给dll  信息 
-									,AuthKey:"000"                //
+									,AuthKey:"A1-Xzjo5wbjkv+E8EUkOiZdJIyVJPV2EifTPR8OD1DFplM="                //
+									,ver:"1.0.0"
 									,iid:null
 									,data:'{"msg":"init from JS","info":1}'               //发送给dll  数据
 									
@@ -117,7 +123,7 @@
 								    ,objName:"dll_demo1"
  									,dllFile:"/plugins/thirdparty/dll_demo1.dll"     //  必须 \\   /     本例使用dll_demo1，调用add方法
 									,clsId :dll_demo1_clsId  //guid   发送给dll  信息 
-									//,AuthKey:"000"                //
+									//,AuthKey:"A1-Xzjo5wbjkv+E8EUkOiZdJIyVJPV2EifTPR8OD1DFplM="                //
 									,iid:null
 									
 								   }   //暂时支持一个控件

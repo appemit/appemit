@@ -24,15 +24,16 @@
 	 AppDll_RevMsg    互动时 接收   消息
 	 AppDll_SendMsg    互动时  反馈 消息
 	*/
-	char *mycid ="00000-1";  //申请的公司产品cid ，需要修改
+	char *myuid ="00000";  //申请的公司uid ，(cid="00000-1")需要修改
 	char *clsId="50FCF891-1B93-4AE5-8A66-AB26A3C03378";  // pid>=guid=clsId 可使用GUID工具自行生成
+	char *AuthKey="A1-Xzjo5wbjkv+E8EUkOiZdJIyVJPV2EifTPR8OD1DFplM=";  //在注册网站生成
 	int dllThid;        //本进程ID
 	// sid;            //websocket里面设置的,一般为用户ID或者sessionID，唯一
 	//  rid ;        //第rid次调用
 	int AppAuth=0;	  //	
       
 	
-	//测试
+	//字符串连接
 	char* joinStr(char *s1, char *s2, char *s3)
 	{
     	char *result = malloc(strlen(s1)+strlen(s2)+strlen(s3)+1);//+1 for the zero-terminator
@@ -92,27 +93,27 @@
 	}
 	__declspec(dllexport) int AppDll_init(HWND hwnd, char *ids,char *msg) 
 	{     
-      //判断获得AppEmit提供ids(格式json)里面cid sid pid AuthKey等数据
+      //判断获得AppEmit提供ids(格式json)里面uid cid sid pid AuthKey等数据
       //和websocket的自行web提供的Json里面的data，判断验证来源是否正确
-       // ids  ="{\"cid\":\"00000-1\",\"sid\":\"f1s\",\"rid\":2333,\"AuthKey\":\"000\",\"clsId\":\"50FCF891-1B93-4AE5-8A66-AB26A3C03378\"}";
+       // ids  ="{\"uid\":\"00000\",\"cid\":\"00000-1\",\"sid\":\"f1s\",\"rid\":2333,\"AuthKey\":\"**\",\"clsId\":\"50FCF891-1B93-4AE5-8A66-AB26A3C03378\"}";
   
        //具体数据和判断需要修改
         cJSON * ids_json= cJSON_Parse(ids);
        // char * ids3= cJSON_PrintUnformatted(ids_json);   //如果解析报错尝试使用cJSON
         // cJSON *  ids_json2= cJSON_Parse(ids3);
 
-         if (!cJSON_GetObjectItem(ids_json,"clsId") || !cJSON_GetObjectItem(ids_json,"cid") || !cJSON_GetObjectItem(ids_json,"AuthKey")) { cJSON_Delete(ids_json);return -1;} 
+         if (!cJSON_GetObjectItem(ids_json,"clsId") || !cJSON_GetObjectItem(ids_json,"AuthKey")) { cJSON_Delete(ids_json);return -1;} 
 
         dllThid = GetCurrentThreadId();
         cJSON_AddNumberToObject(ids_json, "dllThid",  dllThid);  //必需
         cJSON_AddStringToObject(ids_json, "more",  NULL);   //备用字段
-       //必须反馈验证
-          if (strcmp(cJSON_GetObjectItem(ids_json,"cid")->valuestring,mycid)==0 && strcmp(cJSON_GetObjectItem(ids_json,"AuthKey")->valuestring,"000")==0 && strcmp(cJSON_GetObjectItem(ids_json,"clsId")->valuestring,clsId)==0) {
+       //必须反馈验证 strcmp(cJSON_GetObjectItem(ids_json,"uid")->valuestring,myuid)==0 &&
+          if ( strcmp(cJSON_GetObjectItem(ids_json,"AuthKey")->valuestring,AuthKey)==0 && strcmp(cJSON_GetObjectItem(ids_json,"clsId")->valuestring,clsId)==0) {
  
            //msg若反馈必须有  \"clsId\" \"AppAuth\"。AppAuth为1 clsId一致 才继续 // 支持\" 或者 ' 
         	 
         	 msg =  joinStr("{\"data\":{\"code\":200,\"cid\":\"00000-1\",\"sid\":\"123\",\"rid\":-1,\"rec\":",msg,",\"AppStep\":\"init\"}}");
-      	    cJSON_AddNumberToObject(ids_json, "AppAuth",  1);
+      	    cJSON_AddNumberToObject(ids_json, "AppAuth",1);  //0  Bool  
       	     
       	    char *ids2=cJSON_PrintUnformatted(ids_json);
          	//必须反馈验证
@@ -133,17 +134,17 @@
 	}
 	__declspec(dllexport) int AppDll_loaded(HWND hwnd, char *ids,char *msg) 
 	{     
-      //处理业务 //msg若反馈必须有   data  
+      //处理业务 //msg若反馈必须有data   
        //  msg =  joinStr("{\"data\":{\"code\":200,\"cid\":\"00000-1\",\"sid\":\"123\",\"rid\":-1,\"rec\":",msg,",\"AppStep\":\"loaded\"}}");
         
         //若反馈则 
-         AppDll_SendMsg(hwnd,ids,msg); //如果msg中没有data，则不反馈到浏览器中
+         AppDll_SendMsg(hwnd,ids,msg);  //如果msg中没有data，则不反馈到浏览器中
  
 		return 0;
 	}
 	__declspec(dllexport) int AppDll_destroy(HWND hwnd, char *ids,char *msg) 
 	{     
-      //处理业务msg若反馈必须有data  
+      //处理业务msg若反馈必须有  data
          //msg =  joinStr("{\"data\":{\"code\":200,\"cid\":\"00000-1\",\"sid\":\"123\",\"rid\":-1,\"rec\":",msg,",\"AppStep\":\"destroy\"}}");
       
        //若反馈则 
@@ -155,4 +156,25 @@
 	__declspec(dllexport) int Add(int a, int b ) 
 	{     
 		return a+b;
-	}  
+	} 
+	/*
+
+附：编写DLL避免导出函数名乱码（出现修饰名）的几种方法：
+--------------------------------------------------------------------
+1、C语言的导出函数使用默认的cdecl调用约定，不要用stdcall调用约定，就不会有修饰名，示例：
+
+	__declspec(dllexport) int Add( int a,int b ) 
+	{     
+		return a + b;
+	} 
+	
+2、C++编写DLL在导出函数在前面加上extern "C" 使用cdecl导出就不会有修饰名，例如：
+
+    extern "C" __declspec(dllexport) int  Add(int a,int b) 
+    { 
+        return a + b;
+    }
+
+3、如果上面的方法都不用，就只能添加def文件来避免这个问题了。
+
+*/
