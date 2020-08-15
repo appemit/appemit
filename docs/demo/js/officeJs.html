@@ -84,7 +84,7 @@
    //下面4个函数AppJs_init  AppJs_loaded AppJs_destroy AppJs_closed，自动被程序运行。
 	 AppJs_init=function(AppType){  //按照 websocket的参数createObject      生成AppJsObject.objName前执行
 	 //如果这里重新更新定义了，则以此为准,若设置null会替换默认值。 参数结构同调用websocket时一致
-	 // AppType   webJs 最好不要在这里设置
+	 // AppType   webJs 最好不要在这里设置,统一在websocket的js中设置
 	  //   if(AppType){...} 可以自行判断
 	    var par=null;
 	   if(AppType==1) {
@@ -93,10 +93,10 @@
 							//  ,AppType:1     //    1  word   2 excel    3 ppt
 							//	,objName:"word"               //    自动默认为  "word"     "excel"      "powerpoint"    
 							// ,comType: 1                                
-							  ,progId: "KWPS.Application"             // 默认 ["Word.Application","KWPS.Application","WPS.Application"]                   
+							//  ,progId: "KWPS.Application"             // 默认 ["Word.Application","KWPS.Application","WPS.Application"]                   
 							//,ViewType:                                  
 							//,Visible: true                 //word可见
-                           // ,AppShow:true                  //整体窗口不可见 必须设置fase，默认可见							
+                           // ,AppShow:true                  //整体窗口不可见 必须设置fase，默认可见					   
 							//,cookies:                                      
 							//,userAgent:                                   
 						//	,proxy:                                         

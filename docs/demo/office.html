@@ -31,6 +31,9 @@
 <div style="font-size:10px">  5.js control App <!-- 打开d1,实际在par的文件js修改打开d2,增加输入    -->&nbsp;   {"emit":"open","Obj":"office","AppType":1,"src":"/demo/htmlDemo/file/d1.docx","pos":1,"par":{"htmlStr":null,"HttpServer_startUrl":null,"URL":"/demo/htmlDemo/js/officeJs.html","webJs":1},"par0":{"Titlebar":0,"Menubar":0,"Toolbars":0,"btnFile":0,"Statusbar":0 }}
  插入数据<button type="button" id="btn_runCmd" onclick="runCmd('word1') " >word</button>  
   <button type="button" id="btn_runCmd" onclick="runCmd('excel1') " >excel</button>   
+  <div style="font-size:10px">  6.wps pptx &nbsp;  {"emit":"open","Obj":"office","AppType":1,"src":"/demo/htmlDemo/file/d1.docx","pos":1,"par0":{"attach":1,"progId": "KWPS.Application","noMinMax":1,"ViewType":1,"Titlebar":0,"Menubar":1,"Toolbars":1,"btnFile":0}}</div>
+
+  
 </div>
 
  <div readonly id="AppEmbed"  style="border:none; 	width:100%;height:100%" ></textarea>
@@ -91,13 +94,17 @@ runCmd=function(cmdId){         //  或者在嵌入网页officeJs.html 中 js   
  
        // com.DumpTypeInfo(shockwave)
 
-		var codeStr;
+		var codeStr,codeStr2
       
 	 if(cmdId=="word1"  ){
  //  在officeJs里面定义了   Selection=AppJsObject.word.Selection,直接调用Selection
 			  codeStr =   txt2code(function(){/*
 Selection.TypeParagraph();                          
 Selection.TypeText("控制插入一句话-runCmd"); 
+*/});
+			  codeStr2 =   txt2code(function(){/*
+Selection.TypeParagraph();                          
+Selection.TypeText("多个命令插入"); 
 */});
 		}else if(cmdId=="excel1"  ){
  //  在officeJs里面定义了   Selection=AppJsObject.excel.Selection,直接调用Selection
@@ -106,11 +113,16 @@ Selection.TypeText("控制插入一句话-runCmd");
 */});
 		}
 		
-	  var Req={"emit":"runCmd","Obj":"office","codeStr":codeStr }    //都支持
+	  var Req={"emit":"runCmd","Obj":"office","codeStr":codeStr }   
+      var Req2={"emit":"runCmd","Obj":"office","codeStr":codeStr2 }  
+	 if(cmdId=="word1"  )  { 
+	     EmitReqs([Req,Req2,Req2,Req2,Req2,Req2,Req2,Req2,Req2,Req2,Req2,Req2,Req2]);
+     }else{
+      EmitReqs( Req );
+   
+   }
 
-	   EmitReq(Req);
-		
 }
- 
+
 </script>
 </html>
