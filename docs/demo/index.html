@@ -34,9 +34,14 @@
 			</div>
 		 
 			<div style="font-size:10px">3. emit msg to someone [All sids=cid, self_sid emit msg  to(distinct (toSids ∪ toSids)-self_sid) ]&nbsp; {"emit":"msg","toSids":["2"],"toGids":[1,2],"data":"hi, I am Tom."} </div>           
-
+			<div style="font-size:10px">4.  串口&nbsp; {"emit":"open","Obj":"comm","pos":1,"par":{"AppShow":true},"data":"1111","par0":{"codePage":65001,"backNoJson":0}} </div> 
+			 <div style="font-size:10px"> &nbsp;发送数据&nbsp; {"emit":"send","Obj":"comm","data":"可以,第a1 "}</div>           
+                       <!-- // //  backNoJson:true,              //调用dll，backNoJson=true, dll发送的数据直接发送，不处理编码或者json转换；否则默认false为json -->
              <div  id="AppEmbedOut"></div>  
- 
+              <div style="margin-top:10px;text-align:center">
+			 <!--    textarea或者改为div  ， AppEmbed 要一致 -->
+				<textarea readonly id="AppEmbed"  style="min-width:30px;min-height:20px;width:600px;height:400px" ></textarea>
+		</div>
 </div>
 
 </body>
@@ -59,6 +64,6 @@
 	   }
  
  
-
+  
 </script>
 </html>
