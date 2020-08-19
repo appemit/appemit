@@ -94,7 +94,7 @@ Or test online
 [Demo](http://www.appemit.com/demo/index.html)
 
 - Embed IE
-![嵌入IE](https://cdn.jsdelivr.net/gh/appemit/appemit/docs/img/3_appemit_IE.gif)
+![嵌入IE](https://cdn.jsdelivr.net/gh/appemit/AppEmitWeb/docs/img/3_appemit_IE.gif)
 
 - Embedflash swf
  ![image](https://cdn.jsdelivr.net/gh/appemit/appemit@master/docs/img/1_appemit_ActiveX.gif)
