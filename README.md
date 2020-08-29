@@ -1,4 +1,4 @@
-AppEmit  v0.9.15
+AppEmit  v1.0.0
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -62,7 +62,7 @@ Windows system, support XP above.
 1. Download the AppEmit file compression package (under **/dist** dir，without plug-ins less than 6M) and run AppEmit.exe once. Set boot boot, avoid killing poison software off. Only one AppEmit.exe process can be turned on at the same time.
 2. Web page registration gets set cid, clientKey, to obtain permission to connect. Open the html file inside the demo folder or the demo connection on the home page or test with the temporary account cid.
 3. In-background initialization of Appemit connection service
-    `initAppEmit("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")`
+    `AE_initAppWs("ws://localhost:80/appemit?cid=00000-1&sid=1&flag=1")`
 4. Set up clientKey authorization, (clientKey is private, after publication needs to be confidentially confused encryption js) initialization data and authorization, etc.
 
 ```
@@ -78,7 +78,7 @@ var init_AE={
   ```
 5 Send a command
 
-`startAppEmit('{"emit":"hardWare","Obj":"pc"}') `
+`AE_OpenApp('{"emit":"hardWare","Obj":"pc"}') `
 
 6 Turn off command, automatically turn off if app is turned on
 
