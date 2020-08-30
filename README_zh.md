@@ -39,11 +39,27 @@ Email	appemit(at)appemit.com
 
 ~~~
  ├ dist           下载此文件夹的zip压缩包即可。已经包含了NPSWF和帮助文档demo
- ├ docs         略过
- ├ plugins      含有更多的插件，使用时自动安装，如果局域网使用请自行下载。
  ├ README.md 
  └ README_zh.md
 ~~~
+
+##  详细功能
+
+- 支持同步、异步（默认）处理消息或者消息组
+- 支持一个页面打开多个APP
+- 支持本地文件和网络文件访问
+- 支持获取硬件信息，包括系统、CPU、主板、显卡、内存、硬盘、网络等
+- 支持USB监控
+- 支持pcomm串口异步多线程调用
+- 支持用户间通信、发送接收消息
+- 支持使用IE、webkit、blink内核打开，互动网页
+- 支持打开、互动flash,包括ActiveX flash和NPflash
+- 支持多媒体播放
+- 支持打开、编辑、代码互动microsoft office、金山office的world、excel、ppt，支持本地文档和网络文档处理
+- 支持打开PDF
+- 支持调用第三方dll、com等链接库
+- 支持开发dll等
+
 
 ##  使用条件
 
@@ -70,22 +86,26 @@ Windows系统，支持XP以上。
 4.	设置clientKey授权，(clientKey为私有，发布后需要保密混淆加密js)初始化数据以及授权等
 
 ```
-var init_AE={
-		 "clientKey":"temp-0000000000",  
-		  "browser":ThisBrowser,
-		  "wsUrl":wsUrl,
-		//  "sid":"1",         
-		  "gid":"[1,2]",      
-  }
+var AE_initSet = {
+				"emit":"init",
+				  "clientKey": "temp-0000000000",   //
+				"clientInfo":clientInfo,
+                "wsUrl": wsUrl,
+				  // "flag":0,
+                //  "sid":"123456",         // 用户session 或者用户名ID，唯一可以准确通话  
+                "gid": "[1,2]",  //用户群ID，一个用户可以加入多个群
+              // "utf_escape":false,            //默认false, 反馈的data编码转义
+			 
+            };
+  AE_EmitReq_PIP(AE_initSet);
 
-  EmitReq_PaOP(init_AE);
   ```
 5	发送命令
 
-`AE_OpenApp('{"emit":"hardWare","Obj":"pc"}') `
+`AE_OpenApp('{"emit":"hardWare","Obj":"pc","par0":{"dev":["os","base"]}}')  `
 6	关闭命令，如果打开了App，自动关闭
 
-`{"emit":"close","Obj":"flash"}  `
+`{"emit":"close","AppId":1}  `
 
 ###   demo
 在demo下主要是html的举例，

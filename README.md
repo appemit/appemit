@@ -37,11 +37,25 @@ Email appemit (at) appemit.com
 
 ~~~
  ├ dist                 Download the zip package of this folder. Npswf and help document demo are included
- ├ docs          
- ├ plugins            It contains more plug-ins, which can be installed automatically when using. If you use LAN, please download it yourself.
  ├ README.md 
  └ README_zh.md
 ~~~
+
+### Details of the features
+- Supports synchronous, asynchronous (default) processing of messages or message groups.
+- Supports opening multiple APPS on one page.
+- Supports access to local and network files.
+- Supports access to hardware information, including systems, CPUs, motherboards, graphics cards, memory, hard drives, networks, and more.
+- Support for USB monitoring.
+- Supports pcomm serial asynchronous multithreaded calls.
+- Supports communication between users and sending and receiving messages.
+- Supports the use of IE, webkit, blink kernel open, interactive web pages.
+- Supports open, interactive flash, including ActiveX flash and NPflash.
+- Multimedia playback is supported.
+- Supports opening, editing, code interaction microsoft office, Jinshan Office's world, excel, ppt, and local and web document processing.
+- Support for turning on PDFs.
+- Supports calling third-party dll, com, etc. link libraries.
+- Support for development dll, etc.
 
 ### Conditions of use
 
@@ -66,23 +80,26 @@ Windows system, support XP above.
 4. Set up clientKey authorization, (clientKey is private, after publication needs to be confidentially confused encryption js) initialization data and authorization, etc.
 
 ```
-var init_AE={
-		 "clientKey":"temp-0000000000",  
-		  "browser":ThisBrowser,
-		  "wsUrl":wsUrl,
-		//  "sid":"1",         
-		  "gid":"[1,2]",      
-  }
-
-  EmitReq_PaOP(init_AE);
+var AE_initSet = {
+				"emit":"init",
+				  "clientKey": "temp-0000000000",   //
+				"clientInfo":clientInfo,
+                "wsUrl": wsUrl,
+				  // "flag":0,
+                //  "sid":"123456",         // 用户session 或者用户名ID，唯一可以准确通话  
+                "gid": "[1,2]",  //用户群ID，一个用户可以加入多个群
+              // "utf_escape":false,            //默认false, 反馈的data编码转义
+			 
+            };
+  AE_EmitReq_PIP(AE_initSet);
   ```
 5 Send a command
 
-`AE_OpenApp('{"emit":"hardWare","Obj":"pc"}') `
+`AE_OpenApp('{"emit":"hardWare","Obj":"pc","par0":{"dev":["os","base"]}}')  `
 
 6 Turn off command, automatically turn off if app is turned on
 
-`{"emit":"close","Obj":"flash"}  `
+`{"emit":"close","AppId":1}  `
 
 Smh.com.au
 Under demo is mainly an example of html,
