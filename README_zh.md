@@ -1,4 +1,4 @@
-AppEmit  v1.0.9
+AppEmit  v1.0.10
 
 #  概述  [English](https://github.com/appemit/appemit/blob/master/README.md)
 
@@ -54,7 +54,7 @@ Email	appemit(at)appemit.com
 - 支持用户间通信、发送接收消息
 - 支持使用IE、webkit、blink内核打开，互动网页
 - 支持打开、互动flash,包括ActiveX flash和NPflash
-- 支持多媒体播放
+- 支持多媒体播放, mp4、mp3、rtmp、 rtsp、 swf 、flv
 - 支持打开、编辑、代码互动microsoft office、金山office的world、excel、ppt，支持本地文档和网络文档处理
 - 支持打开PDF
 - 支持调用第三方dll、com等链接库

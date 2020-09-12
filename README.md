@@ -1,4 +1,4 @@
-AppEmit  v1.0.9
+AppEmit  v1.0.10
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -51,7 +51,7 @@ Email appemit (at) appemit.com
 - Supports communication between users and sending and receiving messages.
 - Supports the use of IE, webkit, blink kernel open, interactive web pages.
 - Supports open, interactive flash, including ActiveX flash and NPflash.
-- Multimedia playback is supported.
+- Multimedia playback is supported，mp4,mp3,rtmp, rtsp, swf ,flv
 - Supports opening, editing, code interaction microsoft office, Jinshan Office's world, excel, ppt, and local and web document processing.
 - Support for turning on PDFs.
 - Supports calling third-party dll, com, etc. link libraries.
