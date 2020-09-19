@@ -31,7 +31,7 @@ Email appemit (at) appemit.com
 
 [github download address](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
 
-[Domestic use of content distribution download address, updates have lag](https://cdn.jsdelivr.net/gh/appemit/appemit@master/dist/AppEmit.zip)
+[Domestic download address](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
 
 ### Directory Description of Github
 

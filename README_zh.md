@@ -30,9 +30,11 @@ Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email	appemit(at)appemit.com	
 
+[国内下载地址 ](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
+
 [github下载地址 ](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
 
-[国内使用内容分发下载地址，更新有滞后 ](https://cdn.jsdelivr.net/gh/appemit/appemit@master/dist/AppEmit.zip)
+
 
 
 ### Github 的目录说明
