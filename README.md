@@ -1,4 +1,4 @@
-AppEmit  v1.0.15
+AppEmit  v1.0.16
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -29,9 +29,11 @@ Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email appemit (at) appemit.com	
 
+[Domestic download address](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
+
 [github download address](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
 
-[Domestic download address](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
+
 
 ### Directory Description of Github
 
