@@ -1,4 +1,4 @@
-AppEmit  v1.0.22
+AppEmit  v1.0.24
 
 #  概述  [English](https://github.com/appemit/appemit/blob/master/README.md)
 
