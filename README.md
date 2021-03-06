@@ -1,4 +1,4 @@
-AppEmit  v1.1.11
+AppEmit  v1.1.13
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -6,13 +6,12 @@ Appemit is a lightweight middleware that can be easily extended to communicate  
 
 ### main features:
 
- -   Play web pages or Flash files containing flash in almost any browser( chrome edge Firefox QQ 360 Yandex sogou opera IE), including swf interactive animations, flv movies, etc.
- -  Open RTMP, RTSP and other media files in a variety of ways in the browser, support transcoding
- -  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office files, and support JavaScript code operations.
- -  Call third-party DLLs, OCX components, as well as system winApi functions, tcc, python, lua, etc. in the browser.
- -  Develop a package plug-in for the local hardware DLL driver module to operate and control local card readers, printers, scanners, high-shooting instruments, U shields and other hardware devices in the web page.
- -  Communication between applications, such as chat.
- -  Embedding the IE kernel web page in Chrome protects the source code, allows you to keep the original ActiveX reading html from being modified, while supporting open source kernelwke and blink.
+ - 1  Play web pages or Flash files containing flash in almost any browser, including swf interactive animations, flv movies, etc.
+ - 2  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office files, and support JavaScript code operations.
+ - 3  Call third-party DLLs, OCX components, as well as system winApi functions, tcc, python, lua, etc. in the browser.
+ - 4  Develop a package plug-in for the local hardware DLL driver module to operate and control local card readers, printers, scanners, high-shooting instruments, U shields and other hardware devices in the web page.
+ - 5  Communication between applications, such as chat.
+ - 6  Embedding the IE kernel web page in Chrome protects the source code, allows you to keep the original ActiveX reading html from being modified, while supporting open source kernelwke and blink.
 
 ### Solve the problem with the problem
 
@@ -58,7 +57,6 @@ Email appemit (at) appemit.com
 - Supports opening, editing, code interaction microsoft office, Jinshan Office's world, excel, ppt, and local and web document processing.
 - Support for turning on PDFs.
 - Supports calling third-party dll, com, etc. link libraries.
-- Open RTMP, RTSP and other media files in a variety of ways in the browser, support transcoding.
 - Support for development dll, etc.
 
 ### Conditions of use
