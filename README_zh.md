@@ -32,9 +32,9 @@ Email	appemit(at)appemit.com
 
 [国内下载地址 ](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
 
-[github下载地址 ](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
+[github镜像下载地址 ](https://hub.fastgit.org/appemit/appemit/raw/master/dist/AppEmit.zip)
 
-
+ 
 
 
 ### Github 的目录说明
