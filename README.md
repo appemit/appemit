@@ -31,8 +31,8 @@ Email appemit (at) appemit.com
 
 [Domestic download address](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
 
-[github download address](https://raw.githubusercontent.com/appemit/appemit/master/dist/AppEmit.zip)
-
+[github mirror download address](https://hub.fastgit.org/appemit/appemit/raw/master/dist/AppEmit.zip)
+ 
 
 
 ### Directory Description of Github
