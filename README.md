@@ -145,5 +145,5 @@ The first step is to open the AppEmit.exe service, you can F12 to see the error 
 
 4. How do I develop plug-ins?
 
-Use the C interface of HPSocket. Currently in testing.
+Use the C interface  .
 
