@@ -29,7 +29,7 @@ Github[https://github.com/appemit/appemit](https://github.com/appemit/appemit)
 
 Email appemit (at) appemit.com	
 
-[Domestic download address](https://appemit.coding.net/api/share/download/f4d6edfb-69af-48b4-878a-edfad556d3e9)
+[Domestic download address](https://appemit.coding.net/api/share/download/a00ac968-de8c-4744-a5c0-b17ea9efca9c)
 
 [github mirror download address](https://hub.fastgit.org/appemit/appemit/raw/master/dist/AppEmit.zip)
  
