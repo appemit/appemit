@@ -55,7 +55,8 @@ Email appemit (at) appemit.com
 - Supports open, interactive flash, including ActiveX flash and NPflash.
 - Multimedia playback is supported，mp4,mp3,rtmp, rtsp, swf ,flv
 - Supports opening, editing, code interaction microsoft office, Jinshan Office's world, excel, ppt, and local and web document processing.
-- Support for turning on PDFs.
+- Support for opening PDFs.
+- Support for opening,editing autoCAD.
 - Supports calling third-party dll, com, etc. link libraries.
 - Support for development dll, etc.
 
