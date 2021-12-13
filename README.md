@@ -1,4 +1,4 @@
-AppEmit  v1.3.05
+AppEmit  v1.3.06
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -45,6 +45,7 @@ Email appemit (at) appemit.com
 
 ### Details of the features
 - Supports synchronous, asynchronous (default) processing of messages or message groups.
+- Supports connect each other by JS
 - Supports opening multiple APPS on one page.
 - Supports access to local and network files.
 - Supports access to hardware information, including systems, CPUs, motherboards, graphics cards, memory, hard drives, networks, and more.
@@ -55,9 +56,9 @@ Email appemit (at) appemit.com
 - Supports open, interactive flash, including ActiveX flash and NPflash.
 - Multimedia playback is supported，mp4,mp3,rtmp, rtsp, swf ,flv
 - Supports opening, editing, code interaction microsoft office, Jinshan Office's world, excel, ppt, and local and web document processing.
-- Support for opening PDFs.
+- Support for opening PDF3D.
 - Support for opening,editing autoCAD.
-- Supports calling third-party dll, com, etc. link libraries.
+- Supports calling third-party dll, com,dotNet etc link libraries.
 - Support for development dll, etc.
 
 ### Conditions of use
