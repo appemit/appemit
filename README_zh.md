@@ -1,4 +1,4 @@
-AppEmit  v1.3.05
+AppEmit  v1.3.06
 
 #  概述  [English](https://github.com/appemit/appemit/blob/master/README.md)
 
@@ -48,6 +48,7 @@ Email	appemit(at)appemit.com
 ##  详细功能
 
 - 支持同步、异步（默认）处理消息或者消息组
+- 支持使用js来交互信息
 - 支持一个页面打开多个APP
 - 支持本地文件和网络文件访问
 - 支持获取硬件信息，包括系统、CPU、主板、显卡、内存、硬盘、网络等
@@ -59,7 +60,7 @@ Email	appemit(at)appemit.com
 - 支持多媒体播放, mp4、mp3、rtmp、 rtsp、 swf 、flv
 - 支持打开、编辑、代码互动microsoft office、金山office的world、excel、ppt，支持本地文档和网络文档处理
 - 支持打开PDF
-- 支持调用第三方dll、com等链接库
+- 支持调用第三方dll、com、dotNet等链接库
 - 支持开发dll等
 
 
