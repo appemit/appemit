@@ -1,4 +1,4 @@
-AppEmit  v1.3.14
+AppEmit  v1.3.17
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -7,7 +7,7 @@ Appemit is a lightweight middleware that can be easily extended to communicate  
 ### main features:
 
  - 1  Play web pages or Flash files containing flash in almost any browser, including swf interactive animations, flv movies, etc.
- - 2  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office,autoCAD files, and support JavaScript code operations.
+ - 2  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office,autoCAD,CATIA files, and support JavaScript code operations.
  - 3  Call third-party DLLs, OCX components, as well as system winApi functions,C#, tcc, python, lua, etc. in the browser.
  - 4  Develop a package plug-in for the local hardware DLL driver module to operate and control local card readers, printers, scanners, high-shooting instruments, U shields and other hardware devices in the web page.
  - 5  Communication between applications, such as chat.
