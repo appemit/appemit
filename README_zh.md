@@ -1,4 +1,4 @@
-AppEmit  v1.3.35
+AppEmit  v1.3.36
 
 #  概述  [English](https://github.com/appemit/appemit/blob/master/README.md)
 
@@ -7,7 +7,7 @@ AppEmit是应用程序（尤其是浏览器）与本地程序间互相通信的�
 ### 主要功能：
 
  - 1  在几乎所有浏览器播放含有flash的网页或Flash文件，包括swf交互动画、flv影视等
- - 2  在浏览器打开、操作本地文件，比如阅读PDF；创建、阅读、编辑Office，autoCAD,CATIA文件，且支持JavaScript代码操作
+ - 2  在浏览器打开、操作本地文件，比如阅读PDF；创建、阅读、编辑Office，autoCAD,CATIA,barTender文件，且支持JavaScript代码操作
  - 3  在浏览器中调用第三方DLL、OCX组件以及系统winApi函数，c#、tcc、python、lua等
  - 4  开发本地硬件DLL驱动模块的封装插件，实现在网页中操作控制本地的读卡器、打印机、扫描仪、高拍仪、U盾等各种硬件设备
  - 5  各个应用程序之间通信，比如聊天
@@ -59,7 +59,7 @@ Email	appemit(at)appemit.com
 - 支持打开、互动flash,包括ActiveX flash和NPflash
 - 支持多媒体播放, mp4、mp3、rtmp、 rtsp、 swf 、flv
 - 支持打开、编辑、代码互动microsoft office、金山office的world、excel、ppt，支持本地文档和网络文档处理
-- 支持打开3d PDF,autoCAD，CATIA
+- 支持打开编辑3d PDF,autoCAD，CATIA,barTender
 - 支持调用第三方dll、com、dotNet等链接库
 - 支持开发dll等
 
