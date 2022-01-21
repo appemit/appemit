@@ -1,4 +1,4 @@
-AppEmit  v1.3.35
+AppEmit  v1.3.36
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
@@ -7,7 +7,7 @@ Appemit is a lightweight middleware that can be easily extended to communicate  
 ### main features:
 
  - 1  Play web pages or Flash files containing flash in almost any browser, including swf interactive animations, flv movies, etc.
- - 2  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office,autoCAD,CATIA files, and support JavaScript code operations.
+ - 2  Open and manipulate local files in the browser, such as reading PDFs, create, read, edit Office,autoCAD,CATIA,barTender files, and support JavaScript code operations.
  - 3  Call third-party DLLs, OCX components, as well as system winApi functions,C#, tcc, python, lua, etc. in the browser.
  - 4  Develop a package plug-in for the local hardware DLL driver module to operate and control local card readers, printers, scanners, high-shooting instruments, U shields and other hardware devices in the web page.
  - 5  Communication between applications, such as chat.
@@ -57,6 +57,7 @@ Email appemit (at) appemit.com
 - Multimedia playback is supported，mp4,mp3,rtmp, rtsp, swf ,flv
 - Supports opening, editing, code interaction microsoft office, Jinshan Office's world, excel, ppt, and local and web document processing.
 - Support for opening PDF3D.
+- Support for opening,editing bartender.
 - Support for opening,editing autoCAD.
 - Supports calling third-party dll, com,dotNet etc link libraries.
 - Support for development dll, etc.
