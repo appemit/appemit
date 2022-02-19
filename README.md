@@ -1,4 +1,4 @@
-AppEmit  v1.3.36
+AppEmit  v1.3.38
 
 #  Overview  [中文](https://github.com/appemit/appemit/blob/master/README_zh.md)
 
